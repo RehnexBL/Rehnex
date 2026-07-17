@@ -4,32 +4,32 @@ update_stats.py
 Pulls current store stats from the BrickLink API and writes them into
 site-config.json, WITHOUT touching the "announcement" section (so your
 manually-toggled sale banner isn't overwritten by automation).
- 
+
 Run this daily via a GitHub Action (see update-stats.yml).
 """
- 
+
 import json
 import os
 from datetime import date
 from requests_oauthlib import OAuth1Session
- 
+
 # ---- Auth: pull from environment variables (set as GitHub Secrets) ----
 CONSUMER_KEY = os.environ["BL_CONSUMER_KEY"]
 CONSUMER_SECRET = os.environ["BL_CONSUMER_SECRET"]
 TOKEN_VALUE = os.environ["BL_TOKEN_VALUE"]
 TOKEN_SECRET = os.environ["BL_TOKEN_SECRET"]
 STORE_USERNAME = os.environ["BL_USERNAME"]  # your BrickLink username
- 
+
 BASE_URL = "https://api.bricklink.com/api/store/v1"
- 
+
 session = OAuth1Session(
     CONSUMER_KEY,
     client_secret=CONSUMER_SECRET,
     resource_owner_key=TOKEN_VALUE,
     resource_owner_secret=TOKEN_SECRET,
 )
- 
- 
+
+
 def get_inventory_stats():
     """
     Returns (unique_lots, total_items).
@@ -42,44 +42,42 @@ def get_inventory_stats():
     unique_lots = len(data)
     total_items = sum(lot.get("quantity", 0) for lot in data)
     return unique_lots, total_items
- 
- 
+
+
 def get_orders_placed_count():
     """
     Orders placed AT your store (i.e. by buyers).
- 
-    Per BrickLink's API docs, GET /orders with no "direction" param already
-    defaults to received orders (direction=out is what returns orders YOU
-    placed elsewhere as a buyer — that was the original bug).
- 
-    The bigger gotcha: without a status filter, the endpoint may not return
-    every historical order. Passing status=-purged returns every order
-    status EXCEPT purged ones, which is the closest thing to a full
-    lifetime count.
+
+    No status filter here on purpose — BrickLink auto-archives old,
+    inactive orders to a "Purged" status over time, and excluding that
+    status (status=-purged) was wiping out the entire order history for
+    accounts where most orders have aged into that state. The plain,
+    unfiltered call already returns everything, purged included, which is
+    what we want for a lifetime count.
     """
-    resp = session.get(f"{BASE_URL}/orders", params={"status": "-purged"})
+    resp = session.get(f"{BASE_URL}/orders", params={"direction": "in"})
     resp.raise_for_status()
     data = resp.json().get("data", [])
     return len(data)
- 
- 
+
+
 def get_feedback_received_count():
     """Total number of feedback entries received (not a score/rating)."""
     resp = session.get(f"{BASE_URL}/feedback", params={"direction": "in"})
     resp.raise_for_status()
     data = resp.json().get("data", [])
     return len(data)
- 
- 
+
+
 def main():
     config_path = os.path.join(os.path.dirname(__file__), "site-config.json")
     with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
- 
+
     unique_lots, total_items = get_inventory_stats()
     orders_placed = get_orders_placed_count()
     feedback_received = get_feedback_received_count()
- 
+
     config["stats"] = {
         "uniqueLots": unique_lots,
         "totalItems": total_items,
@@ -88,13 +86,12 @@ def main():
         "lastUpdated": date.today().isoformat(),
     }
     # "announcement" section is left untouched on purpose.
- 
+
     with open(config_path, "w", encoding="utf-8") as f:
         json.dump(config, f, indent=2)
- 
+
     print(f"Updated stats: {config['stats']}")
- 
- 
+
+
 if __name__ == "__main__":
     main()
- 
