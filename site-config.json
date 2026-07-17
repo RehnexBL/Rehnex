@@ -1,13 +1,14 @@
+
 {
   "announcement": {
     "enabled": false,
-    "text": "\ud83c\udf89 Sale this week \u2014 20% off orders over $50!"
+    "text": "🎉 Sale this week — 20% off orders over $50!"
   },
   "stats": {
-    "ordersShipped": 0,
-    "uniqueParts": 1089,
-    "feedbackScore": 82,
-    "positiveRating": 0,
+    "uniqueLots": 0,
+    "totalItems": 0,
+    "ordersPlaced": 0,
+    "feedbackReceived": 0,
     "lastUpdated": "2026-07-17"
   }
 }
