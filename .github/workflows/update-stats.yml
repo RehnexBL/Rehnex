@@ -1,0 +1,40 @@
+# Save this file as: .github/workflows/update-stats.yml
+# (GitHub Actions only picks up workflows from that exact folder)
+
+name: Update store stats
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 8am CST daily (UTC time — adjust for DST if it matters to you)
+  workflow_dispatch:        # lets you also trigger it manually from the Actions tab
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests requests_oauthlib
+
+      - name: Run update script
+        env:
+          BL_CONSUMER_KEY: ${{ secrets.BL_CONSUMER_KEY }}
+          BL_CONSUMER_SECRET: ${{ secrets.BL_CONSUMER_SECRET }}
+          BL_TOKEN_VALUE: ${{ secrets.BL_TOKEN_VALUE }}
+          BL_TOKEN_SECRET: ${{ secrets.BL_TOKEN_SECRET }}
+          BL_USERNAME: ${{ secrets.BL_USERNAME }}
+        run: python update_stats.py
+
+      - name: Commit updated stats
+        run: |
+          git config user.name "stats-bot"
+          git config user.email "actions@github.com"
+          git add site-config.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Daily stats update"
+          git push
