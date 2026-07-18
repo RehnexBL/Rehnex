@@ -148,6 +148,16 @@
   .notice-banner .icon { color: var(--red); flex: none; }
   .notice-banner p { margin: 0; color: var(--red); font-weight: 700; font-size: 14.5px; text-align: left; }
 
+  /* Subtler variant — same info, lower visual weight */
+  .notice-banner.subtle {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    margin-bottom: 0;
+  }
+  .notice-banner.subtle .icon { color: var(--ink-soft); font-size: 13px; }
+  .notice-banner.subtle p { color: var(--ink-soft); font-weight: 600; font-size: 13px; }
+
   /* ---------- Individual dropdown rows within a section ---------- */
   .accordion-list { display: flex; flex-direction: column; gap: 10px; }
   .accordion-item {
@@ -417,6 +427,80 @@
   }
   .feedback-dots .dot.active { background: var(--teal); }
 
+  /* ---------- Customer Build Showcase ---------- */
+  .showcase-section {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+  }
+  .showcase-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .showcase-intro p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    max-width: 560px;
+  }
+  .showcase-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    flex: none;
+    white-space: nowrap;
+  }
+  .showcase-cta:hover { background: var(--teal-dark); }
+  .showcase-carousel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .showcase-carousel.empty {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .showcase-body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  @media (max-width: 600px) { .showcase-body { flex-direction: column; } }
+  .showcase-photo {
+    flex: none;
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+  .showcase-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .showcase-caption { font-size: 15px; color: var(--navy); }
+  .showcase-meta { margin-top: 8px; font-size: 13px; color: var(--ink-soft); font-weight: 700; }
+  .showcase-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+  .showcase-dots .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--border); cursor: pointer; border: none; padding: 0;
+  }
+  .showcase-dots .dot.active { background: var(--teal); }
+
   footer {
     text-align: center;
     padding: 24px 20px 40px;
@@ -482,19 +566,28 @@
 
 <div class="announcement" id="announcement-bar"></div>
 
-<div class="notice-banner top-notice">
-  <div class="icon">⚠️</div>
-  <p>Priority Notice: Any order created is binding to the terms and conditions below. Please read before placing an order.</p>
-</div>
-
 <div class="hero">
   <video autoplay muted loop playsinline poster="rehnex-logo-poster.png">
     <source src="rehnex-logo.mp4" type="video/mp4">
   </video>
-  <p>LEGO parts, sorted and shipped from Des Moines, Iowa. Read the details below before ordering.</p>
+  <p>Since 2023, we've been offering quality LEGO® parts, minifigures, and sets from the heart of the Midwest—Des Moines, Iowa, the Crossroads of America. Every order is packed with care, appreciation and reliable service. I look forward to helping you with your next build!</p>
   <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank">
     <img src="Featured_Items.png" alt=""> Featured Items
   </a>
+</div>
+
+<div class="stats-bar" id="stats-bar">
+  <div class="stat"><div class="stat-value" id="stat-lots">—</div><div class="stat-label">Unique Lots Listed</div></div>
+  <div class="stat"><div class="stat-value" id="stat-items">—</div><div class="stat-label">Total Items in Store</div></div>
+  <div class="stat"><div class="stat-value" id="stat-feedback">—</div><div class="stat-label">Feedback Received</div></div>
+</div>
+<div class="stats-updated" id="stats-updated"></div>
+
+<div class="top-notice">
+  <div class="notice-banner subtle">
+    <div class="icon">⚠️</div>
+    <p>Priority Notice: Any order created is binding to the terms and conditions below. Please read before placing an order.</p>
+  </div>
 </div>
 
 <div class="top-row">
@@ -627,13 +720,6 @@
   </div>
 </div>
 
-<div class="stats-bar" id="stats-bar">
-  <div class="stat"><div class="stat-value" id="stat-lots">—</div><div class="stat-label">Unique Lots Listed</div></div>
-  <div class="stat"><div class="stat-value" id="stat-items">—</div><div class="stat-label">Total Items in Store</div></div>
-  <div class="stat"><div class="stat-value" id="stat-feedback">—</div><div class="stat-label">Feedback Received</div></div>
-</div>
-<div class="stats-updated" id="stats-updated"></div>
-
 <div class="section full-width reviews-section" id="feedback">
   <h2 class="section-heading">What Buyers Are Saying</h2>
   <div class="feedback-carousel">
@@ -644,6 +730,22 @@
     <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
   </div>
   <div class="feedback-dots" id="fb-dots"></div>
+</div>
+
+<div class="section full-width showcase-section" id="showcase">
+  <h2 class="section-heading">Customer Build Showcase</h2>
+  <div class="showcase-intro">
+    <p>Built something with parts from Rehnex? Send a photo of your MOC, build, or minifigure and it might be featured right here!</p>
+    <a class="showcase-cta" href="mailto:PLACEHOLDER@rehnex-email.com?subject=My%20Rehnex%20Build&body=Hi%20Rehnex%2C%0A%0AHere%27s%20a%20photo%20of%20my%20build%20using%20parts%20from%20your%20store%21" target="_blank">
+      📸 Share Your Build
+    </a>
+  </div>
+  <div class="showcase-carousel" id="showcase-carousel">
+    <div class="showcase-body" id="showcase-body">
+      <!-- Populated by the showcaseBuilds array below. Add {img, caption, name} entries there as photos come in. -->
+    </div>
+  </div>
+  <div class="showcase-dots" id="showcase-dots"></div>
 </div>
 
 <main>
@@ -1084,6 +1186,72 @@ function resetFbTimer() {
 buildFeedbackDots();
 renderFeedback(0);
 resetFbTimer();
+
+// ---------- Customer Build Showcase ----------
+// Add one entry per submitted photo. "img" should point to a saved copy
+// of the photo (e.g. a filename sitting next to this page, same as the
+// icon images used elsewhere). Leave the array empty and the section
+// will show a friendly "be the first!" placeholder instead of breaking.
+const showcaseBuilds = [
+  // { img: "showcase-01.jpg", caption: "Custom Nexo Knights castle build", name: "Alex R." },
+];
+
+let scIndex = 0;
+let scTimer = null;
+
+function renderShowcase(i) {
+  const wrap = document.getElementById('showcase-body');
+  const carousel = document.getElementById('showcase-carousel');
+  const dotsWrap = document.getElementById('showcase-dots');
+
+  if (!showcaseBuilds.length) {
+    carousel.classList.add('empty');
+    wrap.innerHTML = 'No builds submitted yet — be the first! Send a photo using the button above.';
+    dotsWrap.innerHTML = '';
+    return;
+  }
+
+  carousel.classList.remove('empty');
+  const b = showcaseBuilds[i];
+  wrap.innerHTML =
+    '<div class="showcase-photo"><img src="' + b.img + '" alt="' + (b.caption || 'Customer build') + '"></div>' +
+    '<div><div class="showcase-caption">' + b.caption + '</div>' +
+    '<div class="showcase-meta">— ' + b.name + '</div></div>';
+}
+
+function buildShowcaseDots() {
+  const dotsWrap = document.getElementById('showcase-dots');
+  dotsWrap.innerHTML = '';
+  showcaseBuilds.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (idx === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Show build ' + (idx + 1));
+    dot.onclick = () => { scIndex = idx; renderShowcase(scIndex); updateShowcaseDots(); resetScTimer(); };
+    dotsWrap.appendChild(dot);
+  });
+}
+
+function updateShowcaseDots() {
+  document.querySelectorAll('#showcase-dots .dot').forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === scIndex);
+  });
+}
+
+function scNext() {
+  if (!showcaseBuilds.length) return;
+  scIndex = (scIndex + 1) % showcaseBuilds.length;
+  renderShowcase(scIndex);
+  updateShowcaseDots();
+}
+
+function resetScTimer() {
+  clearInterval(scTimer);
+  if (showcaseBuilds.length > 1) scTimer = setInterval(scNext, 7000);
+}
+
+buildShowcaseDots();
+renderShowcase(0);
+resetScTimer();
 
 // ---------- LEGO Fact of the Day ----------
 // Curated, cross-checked facts — cycles through the list by day-of-year,
