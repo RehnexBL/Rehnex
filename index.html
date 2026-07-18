@@ -281,6 +281,52 @@
     margin-top: 4px;
   }
 
+  /* ---------- Priority notice, now living at the top of the page ---------- */
+  .top-notice {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- Top row: Fun Fact + Message Me side by side ---------- */
+  .top-row {
+    max-width: 1100px;
+    margin: 18px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 700px) { .top-row { grid-template-columns: 1fr; } }
+
+  .message-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--navy);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .message-card:hover { border-color: var(--teal); background: #fff; }
+  .message-icon {
+    font-size: 20px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ---------- Reviews, now a standalone full-width section between the shop grid and the reference content ---------- */
+  .reviews-section {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+  }
   .fact-card {
     display: flex;
     gap: 14px;
@@ -422,31 +468,6 @@
     color: var(--ink-soft);
     padding-bottom: 12px;
   }
-
-  /* ---------- Floating "Message Me" button (BrickLink's own message system, not e-mail) ---------- */
-  .fab-contact {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--navy);
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 700;
-    font-size: 13.5px;
-    padding: 12px 16px;
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(11,74,110,0.28);
-  }
-  .fab-contact:hover { background: var(--teal-dark); }
-  @media (max-width: 480px) {
-    .fab-contact { padding: 12px; }
-    .fab-contact .fab-text { display: none; }
-  }
 </style>
 </head>
 <body>
@@ -458,19 +479,42 @@
     <source src="rehnex-logo.mp4" type="video/mp4">
   </video>
   <p>LEGO parts, sorted and shipped from Des Moines, Iowa. Read the details below before ordering.</p>
-  <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank">
+  <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D">
     <img src="Featured_Items.png" alt=""> Featured Items
   </a>
 </div>
 
+<div class="notice-banner top-notice">
+  <div class="icon">⚠️</div>
+  <p>Priority Notice: Any order created is binding to these terms and conditions.</p>
+</div>
+
+<div class="top-row">
+  <div class="fact-card">
+    <div class="fact-icon"><img src="Fun_Fact.png" alt=""></div>
+    <div>
+      <div class="fact-label">LEGO Fact of the Day</div>
+      <div class="fact-text" id="fact-text">Loading today's fact…</div>
+    </div>
+  </div>
+
+  <a class="message-card" href="https://www.bricklink.com/contact.asp?u=Rehnex" title="Message Rehnex through BrickLink's My Messages system">
+    <div class="fact-icon message-icon">✉️</div>
+    <div>
+      <div class="fact-label">Need Help?</div>
+      <div class="fact-text">Something not working, or have a question? Message me directly through BrickLink.</div>
+    </div>
+  </a>
+</div>
+
 <div class="shop-grid" id="shop">
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D" target="_blank"><img src="All_Items.png" alt=""> All Items</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Parts.png" alt=""> Parts</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22S%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Sets.png" alt=""> Sets</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22M%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Minifigs.png" alt=""> Minifigs</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0,%22showNewest%22:1%7D" target="_blank"><img src="New_Items.png" alt=""> New Items</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22categoryID%22:160,%22showHomeItems%22:0%7D" target="_blank"><img src="Stickers.png" alt=""> Stickers</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22bOnWantedList%22:1,%22showHomeItems%22:0%7D" target="_blank"><img src="On_Your_Wanted_List.png" alt=""> On Your Wanted List</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D"><img src="All_Items.png" alt=""> All Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22showHomeItems%22:0%7D"><img src="Parts.png" alt=""> Parts</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22S%22,%22showHomeItems%22:0%7D"><img src="Sets.png" alt=""> Sets</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22M%22,%22showHomeItems%22:0%7D"><img src="Minifigs.png" alt=""> Minifigs</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0,%22showNewest%22:1%7D"><img src="New_Items.png" alt=""> New Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22categoryID%22:160,%22showHomeItems%22:0%7D"><img src="Stickers.png" alt=""> Stickers</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22bOnWantedList%22:1,%22showHomeItems%22:0%7D"><img src="On_Your_Wanted_List.png" alt=""> On Your Wanted List</a>
   <div class="shop-btn color-picker">
     <img src="Parts_by_Color.png" alt="">
     <select id="color-select" onchange="goToColor(this.value)">
@@ -582,17 +626,24 @@
 </div>
 <div class="stats-updated" id="stats-updated"></div>
 
+<div class="section full-width reviews-section" id="feedback">
+  <h2 class="section-heading">What Buyers Are Saying</h2>
+  <div class="feedback-carousel">
+    <button class="feedback-arrow prev" onclick="fbPrev()" aria-label="Previous review">‹</button>
+    <div class="feedback-stars">★★★★★</div>
+    <div class="feedback-text" id="fb-text"></div>
+    <div class="feedback-meta" id="fb-meta"></div>
+    <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
+  </div>
+  <div class="feedback-dots" id="fb-dots"></div>
+</div>
+
 <main>
 
   <div class="content-grid">
 
     <div class="section" id="terms">
       <h2 class="section-heading">Terms &amp; Conditions</h2>
-
-      <div class="notice-banner">
-        <div class="icon">⚠️</div>
-        <p>Priority Notice: Any order created is binding to these terms and conditions.</p>
-      </div>
 
       <div class="accordion-list">
 
@@ -811,38 +862,12 @@
       <div class="scale-note">Tax is estimated from your ZIP code's state-level rate, applied to items + shipping combined — local/county add-ons aren't included, so this may run a little low or high. BrickLink calculates and collects the exact tax automatically at real checkout, so this is just a heads-up, not the final number.</div>
     </div>
 
-    <div class="section full-width" id="feedback">
-      <h2 class="section-heading">What Buyers Are Saying</h2>
-      <div class="feedback-carousel">
-        <button class="feedback-arrow prev" onclick="fbPrev()" aria-label="Previous review">‹</button>
-        <div class="feedback-stars">★★★★★</div>
-        <div class="feedback-text" id="fb-text"></div>
-        <div class="feedback-meta" id="fb-meta"></div>
-        <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
-      </div>
-      <div class="feedback-dots" id="fb-dots"></div>
-    </div>
-
-    <div class="section full-width" id="fun-fact">
-      <div class="fact-card">
-        <div class="fact-icon"><img src="Fun_Fact.png" alt=""></div>
-        <div>
-          <div class="fact-label">LEGO Fact of the Day</div>
-          <div class="fact-text" id="fact-text">Loading today's fact…</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </main>
 
-<a class="fab-contact" href="https://www.bricklink.com/contact.asp?u=Rehnex" target="_blank" title="Message Rehnex through BrickLink's My Messages system">
-  ✉️ <span class="fab-text">Message Me</span>
-</a>
-
 <footer>
-  Rehnex — <a href="https://www.bricklink.com/" target="_blank">Visit our BrickLink store</a>
+  Rehnex — <a href="https://www.bricklink.com/">Visit our BrickLink store</a>
 </footer>
 
 <script>
@@ -862,8 +887,7 @@ function toggleAccordion(id) {
 function goToColor(colorId) {
   if (colorId === '') return;
   const url = 'https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22colorID%22:' + colorId + ',%22showHomeItems%22:0%7D';
-  window.open(url, '_blank');
-  document.getElementById('color-select').selectedIndex = 0;
+  window.location.href = url;
 }
 
 const rateTable = [
