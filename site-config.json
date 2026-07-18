@@ -8,5 +8,235 @@
     "totalItems": 7472,
     "feedbackReceived": 82,
     "lastUpdated": "2026-07-18"
-  }
+  },
+  "colorsInStock": [
+    {
+      "id": 1,
+      "name": "White"
+    },
+    {
+      "id": 2,
+      "name": "Tan"
+    },
+    {
+      "id": 3,
+      "name": "Yellow"
+    },
+    {
+      "id": 4,
+      "name": "Orange"
+    },
+    {
+      "id": 5,
+      "name": "Red"
+    },
+    {
+      "id": 6,
+      "name": "Green"
+    },
+    {
+      "id": 7,
+      "name": "Blue"
+    },
+    {
+      "id": 11,
+      "name": "Black"
+    },
+    {
+      "id": 12,
+      "name": "Trans-Clear"
+    },
+    {
+      "id": 14,
+      "name": "Trans-Dark Blue"
+    },
+    {
+      "id": 15,
+      "name": "Trans-Light Blue"
+    },
+    {
+      "id": 17,
+      "name": "Trans-Red"
+    },
+    {
+      "id": 19,
+      "name": "Trans-Yellow"
+    },
+    {
+      "id": 20,
+      "name": "Trans-Green"
+    },
+    {
+      "id": 28,
+      "name": "Nougat"
+    },
+    {
+      "id": 34,
+      "name": "Lime"
+    },
+    {
+      "id": 36,
+      "name": "Bright Green"
+    },
+    {
+      "id": 39,
+      "name": "Dark Turquoise"
+    },
+    {
+      "id": 47,
+      "name": "Dark Pink"
+    },
+    {
+      "id": 48,
+      "name": "Sand Green"
+    },
+    {
+      "id": 50,
+      "name": "Trans-Dark Pink"
+    },
+    {
+      "id": 51,
+      "name": "Trans-Purple"
+    },
+    {
+      "id": 55,
+      "name": "Sand Blue"
+    },
+    {
+      "id": 59,
+      "name": "Dark Red"
+    },
+    {
+      "id": 63,
+      "name": "Dark Blue"
+    },
+    {
+      "id": 67,
+      "name": "Metallic Silver"
+    },
+    {
+      "id": 68,
+      "name": "Dark Orange"
+    },
+    {
+      "id": 69,
+      "name": "Dark Tan"
+    },
+    {
+      "id": 71,
+      "name": "Magenta"
+    },
+    {
+      "id": 77,
+      "name": "Pearl Dark Gray"
+    },
+    {
+      "id": 80,
+      "name": "Dark Green"
+    },
+    {
+      "id": 85,
+      "name": "Dark Bluish Gray"
+    },
+    {
+      "id": 86,
+      "name": "Light Bluish Gray"
+    },
+    {
+      "id": 88,
+      "name": "Reddish Brown"
+    },
+    {
+      "id": 89,
+      "name": "Dark Purple"
+    },
+    {
+      "id": 90,
+      "name": "Light Nougat"
+    },
+    {
+      "id": 95,
+      "name": "Flat Silver"
+    },
+    {
+      "id": 98,
+      "name": "Trans-Orange"
+    },
+    {
+      "id": 103,
+      "name": "Bright Light Yellow"
+    },
+    {
+      "id": 104,
+      "name": "Bright Pink"
+    },
+    {
+      "id": 105,
+      "name": "Bright Light Blue"
+    },
+    {
+      "id": 108,
+      "name": "Trans-Bright Green"
+    },
+    {
+      "id": 110,
+      "name": "Bright Light Orange"
+    },
+    {
+      "id": 115,
+      "name": "Pearl Gold"
+    },
+    {
+      "id": 120,
+      "name": "Dark Brown"
+    },
+    {
+      "id": 150,
+      "name": "Medium Nougat"
+    },
+    {
+      "id": 152,
+      "name": "Light Aqua"
+    },
+    {
+      "id": 153,
+      "name": "Dark Azure"
+    },
+    {
+      "id": 154,
+      "name": "Lavender"
+    },
+    {
+      "id": 156,
+      "name": "Medium Azure"
+    },
+    {
+      "id": 158,
+      "name": "Yellowish Green"
+    },
+    {
+      "id": 167,
+      "name": "Reddish Orange"
+    },
+    {
+      "id": 220,
+      "name": "Coral"
+    },
+    {
+      "id": 230,
+      "name": "Satin Trans-Purple"
+    },
+    {
+      "id": 236,
+      "name": "Neon Yellow"
+    },
+    {
+      "id": 241,
+      "name": "Medium Tan"
+    },
+    {
+      "id": 251,
+      "name": "Trans-Black"
+    }
+  ]
 }
