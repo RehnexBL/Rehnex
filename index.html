@@ -138,15 +138,15 @@
   .notice-banner {
     display: flex;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
     background: #FFF4F1;
     border: 1px solid #F6C7BC;
     border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 18px;
   }
-  .notice-banner .icon { color: var(--red); }
-  .notice-banner p { margin: 0; color: var(--red); font-weight: 700; font-size: 14.5px; }
+  .notice-banner .icon { color: var(--red); flex: none; }
+  .notice-banner p { margin: 0; color: var(--red); font-weight: 700; font-size: 14.5px; text-align: left; }
 
   /* ---------- Individual dropdown rows within a section ---------- */
   .accordion-list { display: flex; flex-direction: column; gap: 10px; }
@@ -425,6 +425,14 @@
     color: var(--ink-soft);
     border-top: 1px solid var(--border);
   }
+  .legal-line {
+    margin: 8px auto 0;
+    max-width: 640px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
 
   /* ---------- Announcement bar (toggled via config.json) ---------- */
   .announcement {
@@ -474,19 +482,19 @@
 
 <div class="announcement" id="announcement-bar"></div>
 
+<div class="notice-banner top-notice">
+  <div class="icon">⚠️</div>
+  <p>Priority Notice: Any order created is binding to the terms and conditions below. Please read before placing an order.</p>
+</div>
+
 <div class="hero">
   <video autoplay muted loop playsinline poster="rehnex-logo-poster.png">
     <source src="rehnex-logo.mp4" type="video/mp4">
   </video>
   <p>LEGO parts, sorted and shipped from Des Moines, Iowa. Read the details below before ordering.</p>
-  <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D">
+  <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank">
     <img src="Featured_Items.png" alt=""> Featured Items
   </a>
-</div>
-
-<div class="notice-banner top-notice">
-  <div class="icon">⚠️</div>
-  <p>Priority Notice: Any order created is binding to these terms and conditions.</p>
 </div>
 
 <div class="top-row">
@@ -498,7 +506,7 @@
     </div>
   </div>
 
-  <a class="message-card" href="https://www.bricklink.com/contact.asp?u=Rehnex" title="Message Rehnex through BrickLink's My Messages system">
+  <a class="message-card" href="https://www.bricklink.com/contact.asp?u=Rehnex" title="Message Rehnex through BrickLink's My Messages system" target="_blank">
     <div class="fact-icon message-icon">✉️</div>
     <div>
       <div class="fact-label">Need Help?</div>
@@ -508,13 +516,13 @@
 </div>
 
 <div class="shop-grid" id="shop">
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D"><img src="All_Items.png" alt=""> All Items</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22showHomeItems%22:0%7D"><img src="Parts.png" alt=""> Parts</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22S%22,%22showHomeItems%22:0%7D"><img src="Sets.png" alt=""> Sets</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22M%22,%22showHomeItems%22:0%7D"><img src="Minifigs.png" alt=""> Minifigs</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0,%22showNewest%22:1%7D"><img src="New_Items.png" alt=""> New Items</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22categoryID%22:160,%22showHomeItems%22:0%7D"><img src="Stickers.png" alt=""> Stickers</a>
-  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22bOnWantedList%22:1,%22showHomeItems%22:0%7D"><img src="On_Your_Wanted_List.png" alt=""> On Your Wanted List</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D" target="_blank"><img src="All_Items.png" alt=""> All Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Parts.png" alt=""> Parts</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22S%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Sets.png" alt=""> Sets</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22M%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Minifigs.png" alt=""> Minifigs</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0,%22showNewest%22:1%7D" target="_blank"><img src="New_Items.png" alt=""> New Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22categoryID%22:160,%22showHomeItems%22:0%7D" target="_blank"><img src="Stickers.png" alt=""> Stickers</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22bOnWantedList%22:1,%22showHomeItems%22:0%7D" target="_blank"><img src="On_Your_Wanted_List.png" alt=""> On Your Wanted List</a>
   <div class="shop-btn color-picker">
     <img src="Parts_by_Color.png" alt="">
     <select id="color-select" onchange="goToColor(this.value)">
@@ -867,7 +875,9 @@
 </main>
 
 <footer>
-  Rehnex — <a href="https://www.bricklink.com/">Visit our BrickLink store</a>
+  Rehnex — <a href="https://store.bricklink.com/Rehnex" target="_blank">Visit our BrickLink store</a>
+  <p class="legal-line">Rehnex and the Rehnex logo are trademarks of Rehnex™. Copyright © 2026 Rehnex. All rights reserved.</p>
+  <p class="legal-line">LEGO, the LEGO logo, BrickLink, the Minifigure, DUPLO, the FRIENDS logo, the MINIFIGURES logo, DREAMZzz, NINJAGO, VIDIYO and MINDSTORMS are trademarks of the LEGO Group. © 2026 The LEGO Group. All rights reserved. Some LEGO® sets contain small parts and/or small balls that pose a choking hazard and are not suitable for children under 3 years of age. LEGO® DUPLO® elements are not small parts and are specifically designed for safe use by children under 3 years of age.</p>
 </footer>
 
 <script>
@@ -887,7 +897,8 @@ function toggleAccordion(id) {
 function goToColor(colorId) {
   if (colorId === '') return;
   const url = 'https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22colorID%22:' + colorId + ',%22showHomeItems%22:0%7D';
-  window.location.href = url;
+  window.open(url, '_blank');
+  document.getElementById('color-select').selectedIndex = 0;
 }
 
 const rateTable = [
