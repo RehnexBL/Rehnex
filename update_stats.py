@@ -44,23 +44,6 @@ def get_inventory_stats():
     return unique_lots, total_items
 
 
-def get_orders_placed_count():
-    """
-    Orders placed AT your store (i.e. by buyers).
-
-    No status filter here on purpose — BrickLink auto-archives old,
-    inactive orders to a "Purged" status over time, and excluding that
-    status (status=-purged) was wiping out the entire order history for
-    accounts where most orders have aged into that state. The plain,
-    unfiltered call already returns everything, purged included, which is
-    what we want for a lifetime count.
-    """
-    resp = session.get(f"{BASE_URL}/orders", params={"direction": "in"})
-    resp.raise_for_status()
-    data = resp.json().get("data", [])
-    return len(data)
-
-
 def get_feedback_received_count():
     """Total number of feedback entries received (not a score/rating)."""
     resp = session.get(f"{BASE_URL}/feedback", params={"direction": "in"})
@@ -75,13 +58,11 @@ def main():
         config = json.load(f)
 
     unique_lots, total_items = get_inventory_stats()
-    orders_placed = get_orders_placed_count()
     feedback_received = get_feedback_received_count()
 
     config["stats"] = {
         "uniqueLots": unique_lots,
         "totalItems": total_items,
-        "ordersPlaced": orders_placed,
         "feedbackReceived": feedback_received,
         "lastUpdated": date.today().isoformat(),
     }
