@@ -32,16 +32,40 @@ session = OAuth1Session(
 
 def get_inventory_stats():
     """
-    Returns (unique_lots, total_items).
+    Returns (unique_lots, total_items, color_ids).
     - unique_lots: number of inventory listings ("lots") currently live.
     - total_items: total piece count across all lots (sum of quantity).
+    - color_ids: sorted list of distinct BrickLink color IDs actually
+      used across your current inventory (parts often have no color,
+      e.g. sets/minifigs — those are skipped).
     """
     resp = session.get(f"{BASE_URL}/inventories", params={"status": "Y"})
     resp.raise_for_status()
     data = resp.json().get("data", [])
     unique_lots = len(data)
     total_items = sum(lot.get("quantity", 0) for lot in data)
-    return unique_lots, total_items
+    color_ids = sorted({
+        lot.get("color_id") for lot in data
+        if lot.get("color_id") not in (None, 0)
+    })
+    return unique_lots, total_items, color_ids
+
+
+def get_color_names(color_ids):
+    """
+    Resolves color IDs to their real names using BrickLink's own /colors
+    catalog endpoint (public reference data, not inventory-specific) —
+    this keeps the color dropdown on the splash page accurate even as
+    BrickLink adds new colors, instead of relying on a hand-typed list.
+    """
+    resp = session.get(f"{BASE_URL}/colors")
+    resp.raise_for_status()
+    all_colors = resp.json().get("data", [])
+    name_lookup = {c["color_id"]: c["color_name"] for c in all_colors}
+    return [
+        {"id": cid, "name": name_lookup.get(cid, f"Color {cid}")}
+        for cid in color_ids
+    ]
 
 
 def get_feedback_received_count():
@@ -57,8 +81,9 @@ def main():
     with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    unique_lots, total_items = get_inventory_stats()
+    unique_lots, total_items, color_ids = get_inventory_stats()
     feedback_received = get_feedback_received_count()
+    colors_in_stock = get_color_names(color_ids)
 
     config["stats"] = {
         "uniqueLots": unique_lots,
@@ -66,12 +91,14 @@ def main():
         "feedbackReceived": feedback_received,
         "lastUpdated": date.today().isoformat(),
     }
+    config["colorsInStock"] = colors_in_stock
     # "announcement" section is left untouched on purpose.
 
     with open(config_path, "w", encoding="utf-8") as f:
         json.dump(config, f, indent=2)
 
     print(f"Updated stats: {config['stats']}")
+    print(f"Colors in stock: {len(colors_in_stock)}")
 
 
 if __name__ == "__main__":
