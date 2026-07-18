@@ -31,73 +31,101 @@
     line-height: 1.55;
   }
   a { color: var(--teal-dark); }
- 
-  /* ---------- Sticky nav (Shopify-style top bar) ---------- */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 24px;
-  }
-  nav .brand { display: flex; align-items: center; gap: 10px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; }
-  nav .brand video { width: 34px; height: 34px; border-radius: 6px; }
-  nav .links { display: flex; gap: 22px; font-size: 14px; font-weight: 700; }
-  nav .links a { color: var(--navy); text-decoration: none; }
-  nav .links a:hover { color: var(--teal-dark); }
-  nav .cta {
-    background: var(--teal);
-    color: #fff;
-    padding: 9px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  @media (max-width: 640px) { nav .links { display: none; } }
- 
-  /* ---------- Hero ---------- */
+
+  /* ---------- Hero (top bar / sticky nav removed — it didn't render inside the BrickLink iframe) ---------- */
   .hero {
     text-align: center;
-    padding: 56px 20px 44px;
+    padding: 40px 20px 28px;
     border-bottom: 1px solid var(--border);
   }
   .hero video {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 16px;
   }
   .hero h1 {
     font-family: 'Baloo 2', sans-serif;
     font-size: 30px;
-    margin: 20px 0 6px;
+    margin: 16px 0 6px;
   }
   .hero p {
     color: var(--ink-soft);
     max-width: 460px;
-    margin: 0 auto 22px;
+    margin: 0 auto 20px;
     font-size: 15.5px;
   }
   .hero-cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
     background: var(--teal);
     color: #fff;
     text-decoration: none;
     font-weight: 700;
-    padding: 13px 28px;
+    padding: 11px 28px;
     border-radius: 8px;
     font-size: 15px;
   }
   .hero-cta:hover { background: var(--teal-dark); }
- 
-  main { max-width: 780px; margin: 0 auto; padding: 0 20px 70px; }
- 
-  /* ---------- Section headings (no longer collapsible themselves) ---------- */
-  .section { margin-top: 40px; }
+  .hero-cta img { width: 24px; height: 24px; object-fit: contain; }
+
+  /* ---------- Shop-by-category button grid ---------- */
+  .shop-grid {
+    max-width: 1100px;
+    margin: 26px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 760px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .shop-grid { grid-template-columns: 1fr; } }
+  .shop-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--navy);
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .shop-btn:hover { border-color: var(--teal); background: var(--panel); }
+  .shop-btn img { width: 34px; height: 34px; object-fit: contain; flex: none; }
+  .shop-btn.color-picker { padding: 10px 12px; }
+  .shop-btn.color-picker select {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: none;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--navy);
+    padding: 4px 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 0 20px 70px; }
+
+  /* ---------- Two-column layout for the reference sections ---------- */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 36px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .content-grid { grid-template-columns: 1fr; } }
+  .content-grid .section.full-width { grid-column: 1 / -1; }
+
+  .section { margin-top: 36px; }
   .section-heading {
     font-family: 'Baloo 2', sans-serif;
     font-size: 22px;
@@ -105,7 +133,7 @@
     padding-bottom: 10px;
     border-bottom: 2px solid var(--teal);
   }
- 
+
   /* Priority notice: always visible, not a dropdown */
   .notice-banner {
     display: flex;
@@ -119,7 +147,7 @@
   }
   .notice-banner .icon { color: var(--red); }
   .notice-banner p { margin: 0; color: var(--red); font-weight: 700; font-size: 14.5px; }
- 
+
   /* ---------- Individual dropdown rows within a section ---------- */
   .accordion-list { display: flex; flex-direction: column; gap: 10px; }
   .accordion-item {
@@ -153,7 +181,7 @@
   .accordion-item.open .accordion-body { border-top: 1px solid var(--border); padding: 14px 18px 18px; }
   .accordion-body p { margin: 0; font-size: 14px; color: var(--navy); }
   .accordion-body p + p { margin-top: 8px; }
- 
+
   .icon {
     flex: none; width: 30px; height: 30px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -168,18 +196,18 @@
   .accordion-header.pack .icon { color: var(--brown); }
   .accordion-header.price .icon { color: var(--teal-dark); }
   .accordion-header.faq .icon { color: var(--teal-dark); }
- 
+
   .rate-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
   .rate-table th, .rate-table td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--border); }
   .rate-table th { font-family: 'Baloo 2', sans-serif; color: var(--teal-dark); }
   .discount-tiers { list-style: none; padding: 0; margin: 10px 0; }
   .discount-tiers li { margin-bottom: 4px; font-weight: 700; font-size: 14px; }
- 
+
   /* ---------- Calculator: same card language, no separate "gadget" skin ---------- */
   .calc-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
   .calc-controls-3 { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 600px) { .calc-controls-3 { grid-template-columns: 1fr; } }
- 
+
   .breakdown {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -201,7 +229,58 @@
     font-size: 18px;
     color: var(--teal-dark);
   }
- 
+
+  /* ---------- Shipping discount progress bar ---------- */
+  .ship-progress { margin: 18px 0 6px; }
+  .ship-progress-track {
+    position: relative;
+    height: 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    margin: 0 4px 30px;
+  }
+  .ship-progress-fill {
+    position: absolute;
+    top: -1px; left: -1px;
+    height: 10px;
+    width: 0%;
+    background: var(--teal);
+    border-radius: 999px;
+    transition: width 0.25s ease;
+  }
+  .ship-progress-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--border);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .ship-progress-marker.reached { background: var(--teal); border-color: var(--teal-dark); }
+  .ship-progress-marker .marker-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .ship-progress-marker.reached .marker-label { color: var(--teal-dark); }
+  .ship-progress-note {
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin-top: 4px;
+  }
+
   .fact-card {
     display: flex;
     gap: 14px;
@@ -211,7 +290,8 @@
     border-radius: 12px;
     padding: 18px 20px;
   }
-  .fact-icon { font-size: 26px; flex: none; }
+  .fact-icon { flex: none; }
+  .fact-icon img { width: 40px; height: 40px; object-fit: contain; display: block; }
   .fact-label {
     font-family: 'Baloo 2', sans-serif;
     font-weight: 700;
@@ -239,7 +319,58 @@
   .readout-value { font-family: 'Baloo 2', sans-serif; font-size: 32px; color: var(--teal-dark); }
   .readout-sub { font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; }
   .calc-flag { color: var(--red); font-weight: 700; margin-top: 10px; text-align: center; font-size: 14px; }
- 
+  .scale-note { font-size: 12px; color: var(--ink-soft); margin-top: 10px; }
+
+  /* ---------- Feedback carousel ---------- */
+  .feedback-carousel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 60px;
+    text-align: center;
+    position: relative;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feedback-stars { color: var(--gold); font-size: 16px; margin-bottom: 8px; }
+  .feedback-text {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 17px;
+    color: var(--navy);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .feedback-meta {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .feedback-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--teal-dark);
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .feedback-arrow:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .feedback-arrow.prev { left: 14px; }
+  .feedback-arrow.next { right: 14px; }
+  .feedback-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+  .feedback-dots .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--border); cursor: pointer; border: none; padding: 0;
+  }
+  .feedback-dots .dot.active { background: var(--teal); }
+
   footer {
     text-align: center;
     padding: 24px 20px 40px;
@@ -248,7 +379,7 @@
     color: var(--ink-soft);
     border-top: 1px solid var(--border);
   }
- 
+
   /* ---------- Announcement bar (toggled via config.json) ---------- */
   .announcement {
     display: none;
@@ -261,17 +392,16 @@
     padding: 10px 16px;
   }
   .announcement.visible { display: block; }
- 
+
   /* ---------- Store stats bar ---------- */
   .stats-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    max-width: 780px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 22px 20px 4px;
   }
-  @media (max-width: 640px) { .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 18px 0; } }
   .stat { text-align: center; padding: 0 8px; }
   .stat-value {
     font-family: 'Baloo 2', sans-serif;
@@ -292,270 +422,429 @@
     color: var(--ink-soft);
     padding-bottom: 12px;
   }
+
+  /* ---------- Floating "Message Me" button (BrickLink's own message system, not e-mail) ---------- */
+  .fab-contact {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(11,74,110,0.28);
+  }
+  .fab-contact:hover { background: var(--teal-dark); }
+  @media (max-width: 480px) {
+    .fab-contact { padding: 12px; }
+    .fab-contact .fab-text { display: none; }
+  }
 </style>
 </head>
 <body>
- 
+
 <div class="announcement" id="announcement-bar"></div>
- 
-<nav>
-  <div class="brand">
-    <video autoplay muted loop playsinline poster="rehnex-logo-poster.png">
-      <source src="rehnex-logo.mp4" type="video/mp4">
-    </video>
-    Rehnex
-  </div>
-  <div class="links">
-    <a href="#terms">Terms</a>
-    <a href="#shipping">Shipping</a>
-    <a href="#faq">FAQ</a>
-    <a href="#estimate">Estimate Shipping</a>
-    <a href="#fun-fact">Fun Fact</a>
-  </div>
-  <a class="cta" href="https://www.bricklink.com/" target="_blank">Visit Store</a>
-</nav>
- 
+
 <div class="hero">
   <video autoplay muted loop playsinline poster="rehnex-logo-poster.png">
     <source src="rehnex-logo.mp4" type="video/mp4">
   </video>
-  <h1>Rehnex</h1>
   <p>LEGO parts, sorted and shipped from Des Moines, Iowa. Read the details below before ordering.</p>
-  <a class="hero-cta" href="https://www.bricklink.com/" target="_blank">Shop the Store</a>
+  <a class="hero-cta" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank">
+    <img src="Featured_Items.png" alt=""> Featured Items
+  </a>
 </div>
- 
+
+<div class="shop-grid" id="shop">
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D" target="_blank"><img src="All_Items.png" alt=""> All Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Parts.png" alt=""> Parts</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22S%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Sets.png" alt=""> Sets</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22M%22,%22showHomeItems%22:0%7D" target="_blank"><img src="Minifigs.png" alt=""> Minifigs</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0,%22showNewest%22:1%7D" target="_blank"><img src="New_Items.png" alt=""> New Items</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22categoryID%22:160,%22showHomeItems%22:0%7D" target="_blank"><img src="Stickers.png" alt=""> Stickers</a>
+  <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22bOnWantedList%22:1,%22showHomeItems%22:0%7D" target="_blank"><img src="On_Your_Wanted_List.png" alt=""> On Your Wanted List</a>
+  <div class="shop-btn color-picker">
+    <img src="Parts_by_Color.png" alt="">
+    <select id="color-select" onchange="goToColor(this.value)">
+      <option value="">Parts by Color…</option>
+      <optgroup label="General">
+        <option value="0">Not Applicable</option>
+        <option value="1">White</option>
+        <option value="9">Light Gray</option>
+        <option value="10">Dark Gray</option>
+        <option value="86">Light Bluish Gray</option>
+        <option value="85">Dark Bluish Gray</option>
+        <option value="11">Black</option>
+      </optgroup>
+      <optgroup label="Tan / Brown">
+        <option value="2">Tan</option>
+        <option value="69">Dark Tan</option>
+        <option value="28">Nougat (Flesh)</option>
+        <option value="90">Light Nougat</option>
+        <option value="150">Medium Nougat</option>
+        <option value="8">Brown</option>
+        <option value="120">Dark Brown</option>
+        <option value="88">Reddish Brown</option>
+      </optgroup>
+      <optgroup label="Yellow / Orange">
+        <option value="3">Yellow</option>
+        <option value="33">Light Yellow</option>
+        <option value="103">Bright Light Yellow</option>
+        <option value="4">Orange</option>
+        <option value="31">Medium Orange</option>
+        <option value="68">Dark Orange</option>
+        <option value="110">Bright Light Orange</option>
+      </optgroup>
+      <optgroup label="Red / Pink">
+        <option value="5">Red</option>
+        <option value="59">Dark Red</option>
+        <option value="25">Salmon</option>
+        <option value="23">Pink</option>
+        <option value="47">Dark Pink</option>
+        <option value="104">Bright Pink</option>
+        <option value="71">Magenta</option>
+      </optgroup>
+      <optgroup label="Green">
+        <option value="6">Green</option>
+        <option value="80">Dark Green</option>
+        <option value="36">Bright Green</option>
+        <option value="37">Medium Green</option>
+        <option value="38">Light Green</option>
+        <option value="48">Sand Green</option>
+        <option value="155">Olive Green</option>
+        <option value="34">Lime</option>
+        <option value="158">Yellowish Green</option>
+      </optgroup>
+      <optgroup label="Blue / Azure">
+        <option value="7">Blue</option>
+        <option value="63">Dark Blue</option>
+        <option value="42">Medium Blue</option>
+        <option value="62">Light Blue</option>
+        <option value="72">Maersk Blue</option>
+        <option value="55">Sand Blue</option>
+        <option value="153">Dark Azure</option>
+        <option value="156">Medium Azure</option>
+        <option value="152">Light Aqua</option>
+        <option value="105">Bright Light Blue</option>
+      </optgroup>
+      <optgroup label="Purple / Lavender">
+        <option value="24">Purple</option>
+        <option value="89">Dark Purple</option>
+        <option value="93">Light Purple</option>
+        <option value="154">Lavender</option>
+        <option value="157">Medium Lavender</option>
+        <option value="54">Sand Purple</option>
+      </optgroup>
+      <optgroup label="Transparent">
+        <option value="12">Trans-Clear</option>
+        <option value="13">Trans-Black</option>
+        <option value="17">Trans-Red</option>
+        <option value="14">Trans-Dark Blue</option>
+        <option value="15">Trans-Light Blue</option>
+        <option value="19">Trans-Yellow</option>
+        <option value="20">Trans-Green</option>
+        <option value="16">Trans-Neon Green</option>
+        <option value="98">Trans-Orange</option>
+        <option value="51">Trans-Purple</option>
+        <option value="50">Trans-Dark Pink</option>
+        <option value="108">Trans-Bright Green</option>
+      </optgroup>
+      <optgroup label="Metallic / Pearl / Chrome">
+        <option value="22">Chrome Silver</option>
+        <option value="21">Chrome Gold</option>
+        <option value="61">Pearl Light Gold</option>
+        <option value="115">Pearl Gold</option>
+        <option value="95">Flat Silver</option>
+        <option value="67">Metallic Silver</option>
+        <option value="65">Metallic Gold</option>
+        <option value="84">Copper</option>
+      </optgroup>
+      <optgroup label="Glow">
+        <option value="46">Glow In Dark Opaque</option>
+        <option value="118">Glow In Dark Trans</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+
 <div class="stats-bar" id="stats-bar">
   <div class="stat"><div class="stat-value" id="stat-lots">—</div><div class="stat-label">Unique Lots Listed</div></div>
   <div class="stat"><div class="stat-value" id="stat-items">—</div><div class="stat-label">Total Items in Store</div></div>
-  <div class="stat"><div class="stat-value" id="stat-orders">—</div><div class="stat-label">Orders Placed</div></div>
   <div class="stat"><div class="stat-value" id="stat-feedback">—</div><div class="stat-label">Feedback Received</div></div>
 </div>
 <div class="stats-updated" id="stats-updated"></div>
- 
+
 <main>
- 
-  <div class="section" id="terms">
-    <h2 class="section-heading">Terms &amp; Conditions</h2>
- 
-    <div class="notice-banner">
-      <div class="icon">⚠️</div>
-      <p>Priority Notice: Any order created is binding to these terms and conditions.</p>
+
+  <div class="content-grid">
+
+    <div class="section" id="terms">
+      <h2 class="section-heading">Terms &amp; Conditions</h2>
+
+      <div class="notice-banner">
+        <div class="icon">⚠️</div>
+        <p>Priority Notice: Any order created is binding to these terms and conditions.</p>
+      </div>
+
+      <div class="accordion-list">
+
+        <div class="accordion-item" id="acc-payment">
+          <button class="accordion-header payment" onclick="toggleAccordion('acc-payment')">
+            <div class="icon">💲</div> Payment Information <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>All prices are in <strong>USD</strong>. Payments in other currencies will be refused. <strong>PayPal</strong> only. Payment is due at checkout. Unpaid orders will be <strong>canceled</strong> and may result in <strong>negative feedback</strong>.</p>
+            <p>Orders are processed within <strong>1–2 business days</strong> after payment and shipped the following business day. Orders placed after <strong>3PM CST</strong> are considered received the next business day. (Federal holidays and Sundays excluded.)</p>
+            <p>If your order doesn't show as "Paid" within 1 business day of payment, please contact me.</p>
+            <p>Minimum order: <strong>$5</strong>.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-feedback">
+          <button class="accordion-header feedback" onclick="toggleAccordion('acc-feedback')">
+            <div class="icon">💬</div> Feedback <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>I leave feedback on all orders and appreciate yours in return. If you're unhappy, <strong>please contact me before leaving negative feedback</strong> — most issues can be resolved.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-condition">
+          <button class="accordion-header condition" onclick="toggleAccordion('acc-condition')">
+            <div class="icon">⭐</div> Condition of Pieces <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>All LEGO comes from a <strong>smoke-free, pet-free environment</strong>.</p>
+            <p>"New" pieces are unused, sourced from sets or Pick-a-Brick. Minor scratches may occur from storage or shipping. "Used" pieces are clean, build-ready. I only sell pieces I'd use myself.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-status">
+          <button class="accordion-header status" onclick="toggleAccordion('acc-status')">
+            <div class="icon">📋</div> Order Status <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Pending/Updated</strong> – Order submitted or modified.<br>
+            <strong>Processing/Ready</strong> – Acknowledged and invoiced.<br>
+            <strong>Paid/Packed/Shipped</strong> – Payment received, order packed and shipped.<br>
+            <strong>Received/Completed</strong> – Buyer received and verified order.<br>
+            <strong>Cancelled</strong> – Order canceled.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-qa">
+          <button class="accordion-header qa" onclick="toggleAccordion('acc-qa')">
+            <div class="icon">✅</div> Quality Assurance <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>All lots are double counted for accuracy. Tiny pieces (e.g., 1x1 plates) may appear sparse but are verified. If anything seems incorrect, contact me immediately for resolution.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-cancel">
+          <button class="accordion-header cancel" onclick="toggleAccordion('acc-cancel')">
+            <div class="icon">❌</div> Cancelling Orders <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Orders are binding contracts.</strong> Please confirm your purchase before finalizing. Cancellations may result in negative feedback.</p>
+            <p>Rehnex reserves the right to cancel any order if expectations cannot be met despite reasonable efforts. This is a last resort.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
- 
-    <div class="accordion-list">
- 
-      <div class="accordion-item" id="acc-payment">
-        <button class="accordion-header payment" onclick="toggleAccordion('acc-payment')">
-          <div class="icon">💲</div> Payment Information <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>All prices are in <strong>USD</strong>. Payments in other currencies will be refused. <strong>PayPal</strong> only. Payment is due at checkout. Unpaid orders will be <strong>canceled</strong> and may result in <strong>negative feedback</strong>.</p>
-          <p>Orders are processed within <strong>1–2 business days</strong> after payment and shipped the following business day. Orders placed after <strong>3PM CST</strong> are considered received the next business day. (Federal holidays and Sundays excluded.)</p>
-          <p>If your order doesn't show as "Paid" within 1 business day of payment, please contact me.</p>
-          <p>Minimum order: <strong>$5</strong>.</p>
+
+    <div class="section" id="shipping">
+      <h2 class="section-heading">Shipping &amp; Handling</h2>
+
+      <div class="accordion-list">
+
+        <div class="accordion-item" id="acc-method">
+          <button class="accordion-header method" onclick="toggleAccordion('acc-method')">
+            <div class="icon">🚚</div> Shipping Method <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>All orders ship via USPS. I only ship to the 48 continental states — orders to Alaska or Hawaii will be canceled and may result in negative feedback.</p>
+          </div>
         </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-feedback">
-        <button class="accordion-header feedback" onclick="toggleAccordion('acc-feedback')">
-          <div class="icon">💬</div> Feedback <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>I leave feedback on all orders and appreciate yours in return. If you're unhappy, <strong>please contact me before leaving negative feedback</strong> — most issues can be resolved.</p>
+
+        <div class="accordion-item" id="acc-pack">
+          <button class="accordion-header pack" onclick="toggleAccordion('acc-pack')">
+            <div class="icon">📦</div> Packaging <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>I primarily use bubble mailers, doubling up for larger orders or switching to a box if items exceed mailer size. Parts are individually bagged for safe transit and easy sorting.</p>
+          </div>
         </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-condition">
-        <button class="accordion-header condition" onclick="toggleAccordion('acc-condition')">
-          <div class="icon">⭐</div> Condition of Pieces <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>All LEGO comes from a <strong>smoke-free, pet-free environment</strong>.</p>
-          <p>"New" pieces are unused, sourced from sets or Pick-a-Brick. Minor scratches may occur from storage or shipping. "Used" pieces are clean, build-ready. I only sell pieces I'd use myself.</p>
+
+        <div class="accordion-item" id="acc-price">
+          <button class="accordion-header price" onclick="toggleAccordion('acc-price')">
+            <div class="icon">📮</div> Weights &amp; Pricing <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>Shipping is priced at the average label cost per weight category — no hidden fees, no profit on shipping. Discounts scale with order value:</p>
+            <ul class="discount-tiers">
+              <li>🏅 $25+ — 25% off shipping</li>
+              <li>🥉 $50+ — 50% off shipping</li>
+              <li>🥈 $75+ — 75% off shipping</li>
+              <li>🥇 $100+ — free shipping</li>
+            </ul>
+            <p>I don't ship orders exceeding 10 lbs.</p>
+            <table class="rate-table">
+              <tr><th>Weight</th><th>Price</th></tr>
+              <tr><td>0–4 oz</td><td>$5.69</td></tr>
+              <tr><td>4–8 oz</td><td>$6.04</td></tr>
+              <tr><td>8–12 oz</td><td>$6.70</td></tr>
+              <tr><td>12–15 oz</td><td>$7.72</td></tr>
+              <tr><td>1–2 lbs</td><td>$9.66</td></tr>
+              <tr><td>2–3 lbs</td><td>$10.53</td></tr>
+              <tr><td>3–4 lbs</td><td>$11.71</td></tr>
+              <tr><td>4–5 lbs</td><td>$12.54</td></tr>
+              <tr><td>5–6 lbs</td><td>$14.10</td></tr>
+              <tr><td>6–7 lbs</td><td>$14.88</td></tr>
+              <tr><td>7–8 lbs</td><td>$19.53</td></tr>
+              <tr><td>8–9 lbs</td><td>$21.32</td></tr>
+              <tr><td>9–10 lbs</td><td>$32.10</td></tr>
+            </table>
+          </div>
         </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-status">
-        <button class="accordion-header status" onclick="toggleAccordion('acc-status')">
-          <div class="icon">📋</div> Order Status <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p><strong>Pending/Updated</strong> – Order submitted or modified.<br>
-          <strong>Processing/Ready</strong> – Acknowledged and invoiced.<br>
-          <strong>Paid/Packed/Shipped</strong> – Payment received, order packed and shipped.<br>
-          <strong>Received/Completed</strong> – Buyer received and verified order.<br>
-          <strong>Cancelled</strong> – Order canceled.</p>
+
+        <div class="accordion-item" id="acc-other">
+          <button class="accordion-header other" onclick="toggleAccordion('acc-other')">
+            <div class="icon">📋</div> Other Shipping Details <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>Shipping (and any discount) is calculated automatically at checkout and includes the base weight of packaging materials. Lost or stolen packages are beyond my control and cannot be refunded.</p>
+          </div>
         </div>
+
       </div>
- 
-      <div class="accordion-item" id="acc-qa">
-        <button class="accordion-header qa" onclick="toggleAccordion('acc-qa')">
-          <div class="icon">✅</div> Quality Assurance <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>All lots are double counted for accuracy. Tiny pieces (e.g., 1x1 plates) may appear sparse but are verified. If anything seems incorrect, contact me immediately for resolution.</p>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-cancel">
-        <button class="accordion-header cancel" onclick="toggleAccordion('acc-cancel')">
-          <div class="icon">❌</div> Cancelling Orders <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p><strong>Orders are binding contracts.</strong> Please confirm your purchase before finalizing. Cancellations may result in negative feedback.</p>
-          <p>Rehnex reserves the right to cancel any order if expectations cannot be met despite reasonable efforts. This is a last resort.</p>
-        </div>
-      </div>
- 
     </div>
+
+    <div class="section" id="faq">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+
+      <div class="accordion-list">
+
+        <div class="accordion-item" id="acc-faq-combine">
+          <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-combine')">
+            <div class="icon">📦</div> Can you combine shipping on multiple orders? <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>Yes — if you catch it before a shipping label has been purchased, just reach out and I'll combine your orders into one shipment. Once a label has been generated, orders can no longer be combined.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-faq-intl">
+          <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-intl')">
+            <div class="icon">🌎</div> Do you ship internationally? <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>No, I currently only ship within the 48 continental U.S. states.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="acc-faq-missing">
+          <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-missing')">
+            <div class="icon">⚠️</div> What if a part is missing or wrong in my order? <span class="chevron">▾</span>
+          </button>
+          <div class="accordion-body">
+            <p>Reach out right away and I'll make it right. Every order is double-checked before it ships, but if something slipped through, just let me know.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section" id="estimate">
+      <h2 class="section-heading">Estimate Your Order</h2>
+      <div class="calc-controls calc-controls-3">
+        <div>
+          <label for="weight">Weight (oz)</label>
+          <input type="number" id="weight" min="0" value="4" oninput="calculate()">
+        </div>
+        <div>
+          <label for="subtotal">Order Subtotal ($)</label>
+          <input type="number" id="subtotal" min="0" value="0" oninput="calculate()">
+        </div>
+        <div>
+          <label for="zip">ZIP Code</label>
+          <input type="text" id="zip" maxlength="5" placeholder="e.g. 50309" oninput="calculate()">
+        </div>
+      </div>
+
+      <div class="ship-progress">
+        <div class="ship-progress-track">
+          <div class="ship-progress-fill" id="ship-progress-fill"></div>
+          <div class="ship-progress-marker" data-threshold="25" style="left:25%">
+            <span class="marker-label">$25<br>25% off</span>
+          </div>
+          <div class="ship-progress-marker" data-threshold="50" style="left:50%">
+            <span class="marker-label">$50<br>50% off</span>
+          </div>
+          <div class="ship-progress-marker" data-threshold="75" style="left:75%">
+            <span class="marker-label">$75<br>75% off</span>
+          </div>
+          <div class="ship-progress-marker" data-threshold="100" style="left:100%">
+            <span class="marker-label">$100<br>Free</span>
+          </div>
+        </div>
+        <div class="ship-progress-note" id="ship-progress-note"></div>
+      </div>
+
+      <div class="breakdown" id="breakdown">
+        <div class="breakdown-row"><span>Items Subtotal</span><span id="bd-subtotal">$0.00</span></div>
+        <div class="breakdown-row"><span id="bd-shipping-label">Shipping</span><span id="bd-shipping">$0.00</span></div>
+        <div class="breakdown-row"><span id="bd-tax-label">Estimated Tax</span><span id="bd-tax">$0.00</span></div>
+        <div class="breakdown-row breakdown-total"><span>Estimated Total</span><span id="bd-total">$0.00</span></div>
+      </div>
+
+      <div id="over-limit" class="calc-flag" style="display:none;">This order exceeds the 10 lb shipping limit — please contact me before ordering.</div>
+      <div class="scale-note">Tax is estimated from your ZIP code's state-level rate, applied to items + shipping combined — local/county add-ons aren't included, so this may run a little low or high. BrickLink calculates and collects the exact tax automatically at real checkout, so this is just a heads-up, not the final number.</div>
+    </div>
+
+    <div class="section full-width" id="feedback">
+      <h2 class="section-heading">What Buyers Are Saying</h2>
+      <div class="feedback-carousel">
+        <button class="feedback-arrow prev" onclick="fbPrev()" aria-label="Previous review">‹</button>
+        <div class="feedback-stars">★★★★★</div>
+        <div class="feedback-text" id="fb-text"></div>
+        <div class="feedback-meta" id="fb-meta"></div>
+        <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
+      </div>
+      <div class="feedback-dots" id="fb-dots"></div>
+    </div>
+
+    <div class="section full-width" id="fun-fact">
+      <div class="fact-card">
+        <div class="fact-icon"><img src="Fun_Fact.png" alt=""></div>
+        <div>
+          <div class="fact-label">LEGO Fact of the Day</div>
+          <div class="fact-text" id="fact-text">Loading today's fact…</div>
+        </div>
+      </div>
+    </div>
+
   </div>
- 
-  <div class="section" id="shipping">
-    <h2 class="section-heading">Shipping &amp; Handling</h2>
- 
-    <div class="accordion-list">
- 
-      <div class="accordion-item" id="acc-method">
-        <button class="accordion-header method" onclick="toggleAccordion('acc-method')">
-          <div class="icon">🚚</div> Shipping Method <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>All orders ship via USPS. I only ship to the 48 continental states — orders to Alaska or Hawaii will be canceled and may result in negative feedback.</p>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-pack">
-        <button class="accordion-header pack" onclick="toggleAccordion('acc-pack')">
-          <div class="icon">📦</div> Packaging <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>I primarily use bubble mailers, doubling up for larger orders or switching to a box if items exceed mailer size. Parts are individually bagged for safe transit and easy sorting.</p>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-price">
-        <button class="accordion-header price" onclick="toggleAccordion('acc-price')">
-          <div class="icon">📮</div> Weights &amp; Pricing <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>Shipping is priced at the average label cost per weight category — no hidden fees, no profit on shipping. Discounts scale with order value:</p>
-          <ul class="discount-tiers">
-            <li>🏅 $25+ — 25% off shipping</li>
-            <li>🥉 $50+ — 50% off shipping</li>
-            <li>🥈 $75+ — 75% off shipping</li>
-            <li>🥇 $100+ — free shipping</li>
-          </ul>
-          <p>I don't ship orders exceeding 10 lbs.</p>
-          <table class="rate-table">
-            <tr><th>Weight</th><th>Price</th></tr>
-            <tr><td>0–4 oz</td><td>$5.69</td></tr>
-            <tr><td>4–8 oz</td><td>$6.04</td></tr>
-            <tr><td>8–12 oz</td><td>$6.70</td></tr>
-            <tr><td>12–15 oz</td><td>$7.72</td></tr>
-            <tr><td>1–2 lbs</td><td>$9.66</td></tr>
-            <tr><td>2–3 lbs</td><td>$10.53</td></tr>
-            <tr><td>3–4 lbs</td><td>$11.71</td></tr>
-            <tr><td>4–5 lbs</td><td>$12.54</td></tr>
-            <tr><td>5–6 lbs</td><td>$14.10</td></tr>
-            <tr><td>6–7 lbs</td><td>$14.88</td></tr>
-            <tr><td>7–8 lbs</td><td>$19.53</td></tr>
-            <tr><td>8–9 lbs</td><td>$21.32</td></tr>
-            <tr><td>9–10 lbs</td><td>$32.10</td></tr>
-          </table>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-other">
-        <button class="accordion-header other" onclick="toggleAccordion('acc-other')">
-          <div class="icon">📋</div> Other Shipping Details <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>Shipping (and any discount) is calculated automatically at checkout and includes the base weight of packaging materials. Lost or stolen packages are beyond my control and cannot be refunded.</p>
-        </div>
-      </div>
- 
-    </div>
-  </div>
- 
-  <div class="section" id="faq">
-    <h2 class="section-heading">Frequently Asked Questions</h2>
- 
-    <div class="accordion-list">
- 
-      <div class="accordion-item" id="acc-faq-combine">
-        <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-combine')">
-          <div class="icon">📦</div> Can you combine shipping on multiple orders? <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>Yes — if you catch it before a shipping label has been purchased, just reach out and I'll combine your orders into one shipment. Once a label has been generated, orders can no longer be combined.</p>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-faq-intl">
-        <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-intl')">
-          <div class="icon">🌎</div> Do you ship internationally? <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>No, I currently only ship within the 48 continental U.S. states.</p>
-        </div>
-      </div>
- 
-      <div class="accordion-item" id="acc-faq-missing">
-        <button class="accordion-header faq" onclick="toggleAccordion('acc-faq-missing')">
-          <div class="icon">⚠️</div> What if a part is missing or wrong in my order? <span class="chevron">▾</span>
-        </button>
-        <div class="accordion-body">
-          <p>Reach out right away and I'll make it right. Every order is double-checked before it ships, but if something slipped through, just let me know.</p>
-        </div>
-      </div>
- 
-    </div>
-  </div>
- 
-  <div class="section" id="estimate">
-    <h2 class="section-heading">Estimate Your Order</h2>
-    <div class="calc-controls calc-controls-3">
-      <div>
-        <label for="weight">Weight (oz)</label>
-        <input type="number" id="weight" min="0" value="4" oninput="calculate()">
-      </div>
-      <div>
-        <label for="subtotal">Order Subtotal ($)</label>
-        <input type="number" id="subtotal" min="0" value="0" oninput="calculate()">
-      </div>
-      <div>
-        <label for="zip">ZIP Code</label>
-        <input type="text" id="zip" maxlength="5" placeholder="e.g. 50309" oninput="calculate()">
-      </div>
-    </div>
- 
-    <div class="breakdown" id="breakdown">
-      <div class="breakdown-row"><span>Items Subtotal</span><span id="bd-subtotal">$0.00</span></div>
-      <div class="breakdown-row"><span id="bd-shipping-label">Shipping</span><span id="bd-shipping">$0.00</span></div>
-      <div class="breakdown-row"><span id="bd-tax-label">Estimated Tax</span><span id="bd-tax">$0.00</span></div>
-      <div class="breakdown-row breakdown-total"><span>Estimated Total</span><span id="bd-total">$0.00</span></div>
-    </div>
- 
-    <div id="over-limit" class="calc-flag" style="display:none;">This order exceeds the 10 lb shipping limit — please contact me before ordering.</div>
-    <div class="scale-note">Tax is estimated from your ZIP code's state-level rate only — local/county add-ons aren't included, so this may run a little low. BrickLink calculates and collects the exact tax automatically at real checkout, so this is just a heads-up, not the final number.</div>
-  </div>
- 
-  <div class="section" id="fun-fact">
-    <div class="fact-card">
-      <div class="fact-icon">🧱</div>
-      <div>
-        <div class="fact-label">LEGO Fact of the Day</div>
-        <div class="fact-text" id="fact-text">Loading today's fact…</div>
-      </div>
-    </div>
-  </div>
- 
+
 </main>
- 
+
+<a class="fab-contact" href="https://www.bricklink.com/contact.asp?u=Rehnex" target="_blank" title="Message Rehnex through BrickLink's My Messages system">
+  ✉️ <span class="fab-text">Message Me</span>
+</a>
+
 <footer>
   Rehnex — <a href="https://www.bricklink.com/" target="_blank">Visit our BrickLink store</a>
 </footer>
- 
+
 <script>
 function toggleAccordion(id) {
   const el = document.getElementById(id);
@@ -569,13 +858,20 @@ function toggleAccordion(id) {
     body.style.maxHeight = body.scrollHeight + 40 + 'px';
   }
 }
- 
+
+function goToColor(colorId) {
+  if (colorId === '') return;
+  const url = 'https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22itemType%22:%22P%22,%22colorID%22:' + colorId + ',%22showHomeItems%22:0%7D';
+  window.open(url, '_blank');
+  document.getElementById('color-select').selectedIndex = 0;
+}
+
 const rateTable = [
   [4, 5.69], [8, 6.04], [12, 6.70], [15, 7.72],
   [32, 9.66], [48, 10.53], [64, 11.71], [80, 12.54],
   [96, 14.10], [112, 14.88], [128, 19.53], [144, 21.32], [160, 32.10]
 ];
- 
+
 function discountFor(subtotal) {
   if (subtotal >= 100) return 1.0;
   if (subtotal >= 75) return 0.75;
@@ -583,7 +879,7 @@ function discountFor(subtotal) {
   if (subtotal >= 25) return 0.25;
   return 0;
 }
- 
+
 // State-level general sales tax rates only (no local/county add-ons).
 // These are approximate and change over time — treat as a rough estimate,
 // not the authoritative rate. BrickLink calculates the real tax at checkout.
@@ -600,31 +896,56 @@ const stateTaxRates = {
   VA: 0.0530, WA: 0.0650, WV: 0.0600, WI: 0.0500, WY: 0.0400,
   DC: 0.0600, PR: 0.1150, VI: 0.0000
 };
- 
+
 let zip3State = null;
 fetch('zip3-state.json').then(r => r.json()).then(d => { zip3State = d; calculate(); }).catch(() => {});
- 
+
+const shipProgressMarkers = document.querySelectorAll('.ship-progress-marker');
+
+function updateShipProgress(subtotal) {
+  const capped = Math.min(Math.max(subtotal, 0), 100);
+  document.getElementById('ship-progress-fill').style.width = capped + '%';
+
+  shipProgressMarkers.forEach(m => {
+    const threshold = parseFloat(m.dataset.threshold);
+    m.classList.toggle('reached', subtotal >= threshold);
+  });
+
+  const note = document.getElementById('ship-progress-note');
+  if (subtotal >= 100) {
+    note.textContent = '🥇 Free shipping unlocked!';
+  } else {
+    const tiers = [25, 50, 75, 100];
+    const next = tiers.find(t => subtotal < t);
+    const remaining = (next - subtotal).toFixed(2);
+    note.textContent = '$' + remaining + ' more to unlock the next shipping discount';
+  }
+}
+
 function calculate() {
   const weight = parseFloat(document.getElementById('weight').value) || 0;
   const subtotal = parseFloat(document.getElementById('subtotal').value) || 0;
   const zip = document.getElementById('zip').value.trim();
   const overLimit = document.getElementById('over-limit');
- 
+
+  updateShipProgress(subtotal);
+
   if (weight > 160) {
     document.getElementById('bd-shipping').textContent = '—';
     overLimit.style.display = 'block';
     return;
   }
   overLimit.style.display = 'none';
- 
+
   let base = rateTable[rateTable.length - 1][1];
   for (const [maxOz, cost] of rateTable) {
     if (weight <= maxOz) { base = cost; break; }
   }
   const discount = discountFor(subtotal);
   const shipping = base * (1 - discount);
- 
-  // Tax lookup from ZIP prefix
+
+  // Tax lookup from ZIP prefix. Tax is calculated on items + shipping combined,
+  // matching how BrickLink calculates tax at real checkout.
   let taxRate = 0;
   let taxLabel = 'Estimated Tax';
   if (zip.length >= 3 && zip3State) {
@@ -637,9 +958,9 @@ function calculate() {
       taxLabel = 'Estimated Tax (ZIP not recognized)';
     }
   }
-  const tax = subtotal * taxRate;
+  const tax = (subtotal + shipping) * taxRate;
   const total = subtotal + shipping + tax;
- 
+
   document.getElementById('bd-subtotal').textContent = '$' + subtotal.toFixed(2);
   document.getElementById('bd-shipping-label').textContent = discount > 0
     ? 'Shipping (' + (discount*100) + '% off applied)'
@@ -649,9 +970,86 @@ function calculate() {
   document.getElementById('bd-tax').textContent = '$' + tax.toFixed(2);
   document.getElementById('bd-total').textContent = '$' + total.toFixed(2);
 }
- 
+
 calculate();
- 
+
+// ---------- Feedback carousel ----------
+const feedbackReviews = [
+  { t: "Well packaged and arrived in great condition!", d: "7/10/2026", n: "Vicc" },
+  { t: "Top Tier Seller! Great Quality!", d: "7/7/2026", n: "HartyG" },
+  { t: "Items arrived very fast and in perfect condition. Great shop!", d: "6/27/2026", n: "Heathert73" },
+  { t: "FAST! Great parts. Great packaging. Wonderful seller.", d: "5/13/2026", n: "k1965a" },
+  { t: "great store & seller!! recommended for all your LEGO needs!!", d: "10/8/2025", n: "jms2027" },
+  { t: "Great Seller! Great Minifigures! Would buy from again in an instant! A+++", d: "9/3/2025", n: "zeeverse" },
+  { t: "Fast shipping and parts are in amazing condition! Thank you again!", d: "8/29/2025", n: "bb-4366090" },
+  { t: "Great condition and fast shipping!", d: "8/26/2025", n: "fletcher13" },
+  { t: "Amazing seller, order arrived promptly and with everything as described. TY", d: "8/21/2025", n: "bb-4865003" },
+  { t: "Quick delivery and great quality!", d: "7/28/2025", n: "Paul_Beenis" },
+  { t: "Great seller! Will definitely use again!", d: "6/20/2025", n: "FSB2075" },
+  { t: "Awesome fast service, highly recommended", d: "6/12/2025", n: "Roger723" },
+  { t: "Excellent items and excellent service! (◕‿◕)...Thank you!", d: "6/9/2025", n: "Bricksteroni" },
+  { t: "Shipping was quick and items came exactly as pictured :)", d: "6/2/2025", n: "ryguy77" },
+  { t: "Items were packaged great and got to me quickly, 10/10 seller!", d: "6/2/2025", n: "bb-2774921" },
+  { t: "Happy with everything. Thanks!!!", d: "3/4/2025", n: "way7098" },
+  { t: "Excellent seller, fast shipping, everything as described. Thank you!!", d: "3/1/2025", n: "LegoStoryW" },
+  { t: "Great communication, packaging and quality all around! Would buy again", d: "2/27/2025", n: "J_murphy20" },
+  { t: "Came as advertised, would order again!", d: "2/19/2025", n: "BAK_Bricks" },
+  { t: "Everything arrived in perfect condition!", d: "2/13/2025", n: "SpencesBricks" },
+  { t: "Shipped during expected time, packed adequately, product as described,thank you!", d: "11/16/2024", n: "bb-4292034" },
+  { t: "Good Seller, super fast shipment, well packed. Thank You !", d: "8/19/2024", n: "PAU813" },
+  { t: "Gr8 selection and prices. Thanks so much", d: "11/27/2023", n: "crushing71" },
+  { t: "Quick ship, good packaging, thanks.", d: "11/10/2023", n: "Haufbraunn" },
+  { t: "Thanks for the great pieces and fast service, grandsons are happy.", d: "9/21/2023", n: "Eric63" },
+  { t: "Great Seller! Arrived fast! Will be back for more", d: "8/24/2023", n: "missbrixx" },
+  { t: "Thank You! Processed and shipped quickly!", d: "8/8/2023", n: "Mdball1416" },
+  { t: "Great seller, fast service, would buy from again", d: "8/4/2023", n: "Ethongoo" },
+  { t: "Fantastic seller! A+++", d: "8/2/2023", n: "OramSolutions" }
+];
+
+let fbIndex = 0;
+let fbTimer = null;
+
+function renderFeedback(i) {
+  const r = feedbackReviews[i];
+  document.getElementById('fb-text').textContent = '“' + r.t + '”';
+  document.getElementById('fb-meta').textContent = r.n + ' · ' + r.d;
+  document.querySelectorAll('#fb-dots .dot').forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === i);
+  });
+}
+
+function buildFeedbackDots() {
+  const dotsWrap = document.getElementById('fb-dots');
+  feedbackReviews.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (idx === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Show review ' + (idx + 1));
+    dot.onclick = () => { fbIndex = idx; renderFeedback(fbIndex); resetFbTimer(); };
+    dotsWrap.appendChild(dot);
+  });
+}
+
+function fbNext() {
+  fbIndex = (fbIndex + 1) % feedbackReviews.length;
+  renderFeedback(fbIndex);
+  resetFbTimer();
+}
+
+function fbPrev() {
+  fbIndex = (fbIndex - 1 + feedbackReviews.length) % feedbackReviews.length;
+  renderFeedback(fbIndex);
+  resetFbTimer();
+}
+
+function resetFbTimer() {
+  clearInterval(fbTimer);
+  fbTimer = setInterval(fbNext, 7000);
+}
+
+buildFeedbackDots();
+renderFeedback(0);
+resetFbTimer();
+
 // ---------- LEGO Fact of the Day ----------
 // Curated, cross-checked facts — cycles through the list by day-of-year,
 // so it repeats a few times across the year rather than being 365 fully
@@ -689,16 +1087,16 @@ const legoFacts = [
   "LEGO bricks are tested by dropping, twisting, and pulling machines that simulate years of play in a matter of hours.",
   "Bricklink was founded in 2000 as a marketplace specifically for secondhand and individual LEGO parts, years before LEGO itself acquired it in 2019."
 ];
- 
+
 function getDayOfYear(date) {
   const start = new Date(date.getFullYear(), 0, 0);
   const diff = date - start;
   return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
- 
+
 const dayIndex = (getDayOfYear(new Date()) - 1) % legoFacts.length;
 document.getElementById('fact-text').textContent = legoFacts[dayIndex];
- 
+
 // ---------- Load announcement + stats from site-config.json ----------
 // This file is edited by hand for the announcement, and can be overwritten
 // daily by a scheduled script (e.g. a GitHub Action) for the stats numbers.
@@ -711,12 +1109,11 @@ fetch('site-config.json?_=' + Date.now())
       bar.textContent = cfg.announcement.text;
       bar.classList.add('visible');
     }
- 
-    // Stats bar
+
+    // Stats bar (orders-placed count intentionally left off the display for now)
     if (cfg.stats) {
       document.getElementById('stat-lots').textContent = cfg.stats.uniqueLots ?? '—';
       document.getElementById('stat-items').textContent = cfg.stats.totalItems ?? '—';
-      document.getElementById('stat-orders').textContent = cfg.stats.ordersPlaced ?? '—';
       document.getElementById('stat-feedback').textContent = cfg.stats.feedbackReceived ?? '—';
       if (cfg.stats.lastUpdated) {
         document.getElementById('stats-updated').textContent = 'Stats updated ' + cfg.stats.lastUpdated;
@@ -729,6 +1126,6 @@ fetch('site-config.json?_=' + Date.now())
     document.getElementById('stats-updated').style.display = 'none';
   });
 </script>
- 
+
 </body>
 </html>
