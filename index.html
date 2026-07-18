@@ -327,7 +327,7 @@
   /* ---------- Top row: Fun Fact + Message Me side by side ---------- */
   .top-row {
     max-width: 1100px;
-    margin: 18px auto 0;
+    margin: 34px auto 34px;
     padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -589,24 +589,6 @@
   <p>Priority Notice: Any order created is binding to the terms and conditions below. Please read before placing an order.</p>
 </div>
 
-<div class="top-row">
-  <div class="fact-card">
-    <div class="fact-icon"><img src="Fun_Fact.png" alt=""></div>
-    <div>
-      <div class="fact-label">LEGO Fact of the Day</div>
-      <div class="fact-text" id="fact-text">Loading today's fact…</div>
-    </div>
-  </div>
-
-  <a class="message-card" href="https://www.bricklink.com/contact.asp?u=Rehnex" title="Message Rehnex through BrickLink's My Messages system" target="_blank">
-    <div class="fact-icon message-icon">✉️</div>
-    <div>
-      <div class="fact-label">Need Help?</div>
-      <div class="fact-text">Something not working, or have a question? Message me directly through BrickLink.</div>
-    </div>
-  </a>
-</div>
-
 <h2 class="section-heading shop-heading">Shop by Category</h2>
 <div class="shop-grid" id="shop">
   <a class="shop-btn" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank"><img src="Featured_Items.png" alt=""> Featured Items</a>
@@ -621,139 +603,10 @@
     <img src="Parts_by_Color.png" alt="">
     <select id="color-select" onchange="goToColor(this.value)">
       <option value="">Parts by Color…</option>
-      <optgroup label="General">
-        <option value="0">Not Applicable</option>
-        <option value="1">White</option>
-        <option value="9">Light Gray</option>
-        <option value="10">Dark Gray</option>
-        <option value="86">Light Bluish Gray</option>
-        <option value="85">Dark Bluish Gray</option>
-        <option value="11">Black</option>
-      </optgroup>
-      <optgroup label="Tan / Brown">
-        <option value="2">Tan</option>
-        <option value="69">Dark Tan</option>
-        <option value="28">Nougat (Flesh)</option>
-        <option value="90">Light Nougat</option>
-        <option value="150">Medium Nougat</option>
-        <option value="8">Brown</option>
-        <option value="120">Dark Brown</option>
-        <option value="88">Reddish Brown</option>
-      </optgroup>
-      <optgroup label="Yellow / Orange">
-        <option value="3">Yellow</option>
-        <option value="33">Light Yellow</option>
-        <option value="103">Bright Light Yellow</option>
-        <option value="4">Orange</option>
-        <option value="31">Medium Orange</option>
-        <option value="68">Dark Orange</option>
-        <option value="110">Bright Light Orange</option>
-      </optgroup>
-      <optgroup label="Red / Pink">
-        <option value="5">Red</option>
-        <option value="59">Dark Red</option>
-        <option value="25">Salmon</option>
-        <option value="23">Pink</option>
-        <option value="47">Dark Pink</option>
-        <option value="104">Bright Pink</option>
-        <option value="71">Magenta</option>
-      </optgroup>
-      <optgroup label="Green">
-        <option value="6">Green</option>
-        <option value="80">Dark Green</option>
-        <option value="36">Bright Green</option>
-        <option value="37">Medium Green</option>
-        <option value="38">Light Green</option>
-        <option value="48">Sand Green</option>
-        <option value="155">Olive Green</option>
-        <option value="34">Lime</option>
-        <option value="158">Yellowish Green</option>
-      </optgroup>
-      <optgroup label="Blue / Azure">
-        <option value="7">Blue</option>
-        <option value="63">Dark Blue</option>
-        <option value="42">Medium Blue</option>
-        <option value="62">Light Blue</option>
-        <option value="72">Maersk Blue</option>
-        <option value="55">Sand Blue</option>
-        <option value="153">Dark Azure</option>
-        <option value="156">Medium Azure</option>
-        <option value="152">Light Aqua</option>
-        <option value="105">Bright Light Blue</option>
-      </optgroup>
-      <optgroup label="Purple / Lavender">
-        <option value="24">Purple</option>
-        <option value="89">Dark Purple</option>
-        <option value="93">Light Purple</option>
-        <option value="154">Lavender</option>
-        <option value="157">Medium Lavender</option>
-        <option value="54">Sand Purple</option>
-      </optgroup>
-      <optgroup label="Transparent">
-        <option value="12">Trans-Clear</option>
-        <option value="13">Trans-Black</option>
-        <option value="17">Trans-Red</option>
-        <option value="14">Trans-Dark Blue</option>
-        <option value="15">Trans-Light Blue</option>
-        <option value="19">Trans-Yellow</option>
-        <option value="20">Trans-Green</option>
-        <option value="16">Trans-Neon Green</option>
-        <option value="98">Trans-Orange</option>
-        <option value="51">Trans-Purple</option>
-        <option value="50">Trans-Dark Pink</option>
-        <option value="108">Trans-Bright Green</option>
-      </optgroup>
-      <optgroup label="Metallic / Pearl / Chrome">
-        <option value="22">Chrome Silver</option>
-        <option value="21">Chrome Gold</option>
-        <option value="61">Pearl Light Gold</option>
-        <option value="115">Pearl Gold</option>
-        <option value="95">Flat Silver</option>
-        <option value="67">Metallic Silver</option>
-        <option value="65">Metallic Gold</option>
-        <option value="84">Copper</option>
-      </optgroup>
-      <optgroup label="Glow">
-        <option value="46">Glow In Dark Opaque</option>
-        <option value="118">Glow In Dark Trans</option>
-      </optgroup>
+      <!-- Populated automatically from your actual current inventory,
+           via the daily stats script. See colorsInStock in site-config.json. -->
     </select>
   </div>
-</div>
-
-<div class="social-proof-row">
-
-  <div class="section reviews-section" id="feedback">
-    <h2 class="section-heading">What Buyers Are Saying</h2>
-    <div class="feedback-carousel">
-      <button class="feedback-arrow prev" onclick="fbPrev()" aria-label="Previous review">‹</button>
-      <div class="feedback-stars">★★★★★</div>
-      <div class="feedback-text" id="fb-text"></div>
-      <div class="feedback-meta" id="fb-meta"></div>
-      <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
-    </div>
-    <div class="feedback-dots" id="fb-dots"></div>
-  </div>
-
-  <div class="section showcase-section" id="showcase">
-    <h2 class="section-heading">Customer Build Showcase</h2>
-    <div class="build-carousel" id="build-carousel">
-      <button class="feedback-arrow prev" onclick="sbPrev()" aria-label="Previous build" id="sb-prev">‹</button>
-      <div class="build-carousel-body" id="sb-body">
-        <!-- populated by JS: either a real submission or the "be the first" placeholder -->
-      </div>
-      <button class="feedback-arrow next" onclick="sbNext()" aria-label="Next build" id="sb-next">›</button>
-    </div>
-    <div class="feedback-dots" id="sb-dots"></div>
-
-    <p class="showcase-note">Built something with parts from Rehnex? Send a photo of your MOC, build, or minifigure and it might be featured right here! Send them over to RehnexBricklink@gmail.com</p>
-    <div class="feature-row">
-      <a class="hero-cta showcase-cta" href="mailto:RehnexBricklink@gmail.com?subject=My%20Rehnex%20Build%20Showcase%20Submission" title="Email photos of your MOC, build, or minifigure to be featured">
-        📸 Share Your Build
-      </a>
-    </div>
-  </div>
-
 </div>
 
 <main>
@@ -983,6 +836,59 @@
   </div>
 
 </main>
+
+<div class="social-proof-row">
+
+  <div class="section reviews-section" id="feedback">
+    <h2 class="section-heading">What Buyers Are Saying</h2>
+    <div class="feedback-carousel">
+      <button class="feedback-arrow prev" onclick="fbPrev()" aria-label="Previous review">‹</button>
+      <div class="feedback-stars">★★★★★</div>
+      <div class="feedback-text" id="fb-text"></div>
+      <div class="feedback-meta" id="fb-meta"></div>
+      <button class="feedback-arrow next" onclick="fbNext()" aria-label="Next review">›</button>
+    </div>
+    <div class="feedback-dots" id="fb-dots"></div>
+  </div>
+
+  <div class="section showcase-section" id="showcase">
+    <h2 class="section-heading">Customer Build Showcase</h2>
+    <div class="build-carousel" id="build-carousel">
+      <button class="feedback-arrow prev" onclick="sbPrev()" aria-label="Previous build" id="sb-prev">‹</button>
+      <div class="build-carousel-body" id="sb-body">
+        <!-- populated by JS: either a real submission or the "be the first" placeholder -->
+      </div>
+      <button class="feedback-arrow next" onclick="sbNext()" aria-label="Next build" id="sb-next">›</button>
+    </div>
+    <div class="feedback-dots" id="sb-dots"></div>
+
+    <p class="showcase-note">Built something with parts from Rehnex? Send a photo of your MOC, build, or minifigure and it might be featured right here! Send them over to RehnexBricklink@gmail.com</p>
+    <div class="feature-row">
+      <a class="hero-cta showcase-cta" href="mailto:RehnexBricklink@gmail.com?subject=My%20Rehnex%20Build%20Showcase%20Submission" title="Email photos of your MOC, build, or minifigure to be featured">
+        📸 Share Your Build
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="top-row">
+  <div class="fact-card">
+    <div class="fact-icon"><img src="Fun_Fact.png" alt=""></div>
+    <div>
+      <div class="fact-label">LEGO Fact of the Day</div>
+      <div class="fact-text" id="fact-text">Loading today's fact…</div>
+    </div>
+  </div>
+
+  <a class="message-card" href="https://www.bricklink.com/contact.asp?u=Rehnex" title="Message Rehnex through BrickLink's My Messages system" target="_blank">
+    <div class="fact-icon message-icon">✉️</div>
+    <div>
+      <div class="fact-label">Need Help?</div>
+      <div class="fact-text">Something not working, or have a question? Message me directly through BrickLink.</div>
+    </div>
+  </a>
+</div>
 
 <footer>
   Rehnex — <a href="https://store.bricklink.com/Rehnex" target="_blank">Visit our BrickLink store</a>
@@ -1293,8 +1199,84 @@ const legoFacts = [
   "LEGO Ideas lets fans submit their own designs; if a submission reaches 10,000 supporter votes, it's reviewed for potential official release.",
   "The LEGO Movie, released in 2014, was the first feature film built around the brand and became a genuine box office hit.",
   "LEGO bricks are tested by dropping, twisting, and pulling machines that simulate years of play in a matter of hours.",
-  "Bricklink was founded in 2000 as a marketplace specifically for secondhand and individual LEGO parts, years before LEGO itself acquired it in 2019."
+  "Bricklink was founded in 2000 as a marketplace specifically for secondhand and individual LEGO parts, years before LEGO itself acquired it in 2019.",
+  "Ole Kirk Christiansen's original workshop made wooden ladders, ironing boards, and Christmas tree stands before he ever made a toy.",
+  "The company officially adopted the name \"LEGO\" in 1934, two years after Ole Kirk Christiansen founded the business.",
+  "LEGO's first plastic bricks, called \"Automatic Binding Bricks,\" were introduced in 1949 and looked similar to today's bricks but lacked the tubes underneath.",
+  "The LEGO System in Play concept, which defined how sets and pieces work together as one connected system, was formalized in 1955.",
+  "LEGO switched the material used for its bricks from cellulose acetate to ABS plastic in 1963, improving colorfastness and durability.",
+  "Godtfred Kirk Christiansen, Ole Kirk's son, is credited with turning LEGO from a toy maker into a structured building system, formalized as the LEGO System in Play.",
+  "The LEGO Group didn't sell outside Europe until the 1960s; the brand didn't reach the U.S. market in a major way until the early 1970s.",
+  "LEGO Technic pieces use a consistent hole-and-pin spacing system that lines up exactly with the stud spacing on regular bricks.",
+  "The smallest standard LEGO part, the 1x1 plate, is about 8mm across — smaller than a standard pencil eraser.",
+  "LEGO's Bionicle line, launched in 2001, was one of the first LEGO themes built around an ongoing story told partly outside the sets themselves, through books and animations.",
+  "A LEGO baseplate's stud spacing (8mm between studs) is the master measurement that every other LEGO part is designed around.",
+  "LEGO Friends, introduced in 2012, was designed with a different minifigure body proportion (mini-dolls) than the classic minifigure line.",
+  "The world's tallest LEGO tower, built collaboratively, has exceeded 35 meters (115+ feet) in various record attempts over the years.",
+  "LEGO Masters, the reality building competition, has aired international versions in more than a dozen countries.",
+  "The LEGO Group is still majority-owned by the Kirk Kristiansen family through their holding company, KIRKBI, despite being one of the world's largest toy companies.",
+  "BrickLink's official item type codes — P for Parts, S for Sets, M for Minifigs — are used across its entire catalog and API, including the buttons on this very page.",
+  "A single LEGO minifigure head, hands, and standard body are technically three separate interchangeable elements, which is why customizing minifigures is so popular.",
+  "LEGO's iconic red box logo has changed several times since the 1930s, but the interlocking-letter wordmark has stayed recognizable since the 1970s.",
+  "LEGO Creator Expert (now LEGO Icons) sets are designed for adult builders and often include architectural or vehicle replicas with thousands of pieces.",
+  "The word \"MOC\" in the LEGO community stands for \"My Own Creation\" — any build that isn't based on an official set instructions."
 ];
+
+// ---------- Special-day overrides ----------
+// On these specific dates, a dedicated message replaces the regular
+// cycling fact for the day. Thanksgiving and Easter move every year, so
+// they're calculated rather than hardcoded.
+const fixedSpecialDays = {
+  "01-28": "🧱 Happy International LEGO Day! On this day in 1958, Godtfred Kirk Christiansen filed the patent for the stud-and-tube brick design — the same interlocking system used in every LEGO brick made since.",
+  "08-10": "🎂 Happy Birthday, LEGO Group! On August 10, 1932, Ole Kirk Christiansen founded a small carpentry workshop in Billund, Denmark that would grow into the LEGO Group.",
+  "10-31": "🎃 Happy Halloween! Over the years LEGO has released plenty of spooky-themed sets, from haunted houses to licensed builds — a fun excuse for a Halloween build session.",
+  "12-25": "🎄 Merry Christmas from Rehnex! LEGO's Winter Village collector series has become a holiday tradition for many fans, with a new set released nearly every December."
+};
+
+function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+// 4th Thursday of November
+function getThanksgiving(year) {
+  const nov1 = new Date(year, 10, 1);
+  const firstThursdayOffset = (4 - nov1.getDay() + 7) % 7;
+  const firstThursday = 1 + firstThursdayOffset;
+  return new Date(year, 10, firstThursday + 21);
+}
+
+// Anonymous Gregorian algorithm (Meeus/Jones/Butcher) for Easter Sunday
+function getEaster(year) {
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31);
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  return new Date(year, month - 1, day);
+}
+
+function getSpecialDayMessage(today) {
+  const key = pad2(today.getMonth() + 1) + '-' + pad2(today.getDate());
+  if (fixedSpecialDays[key]) return fixedSpecialDays[key];
+
+  const year = today.getFullYear();
+  const thanksgiving = getThanksgiving(year);
+  if (today.getMonth() === thanksgiving.getMonth() && today.getDate() === thanksgiving.getDate()) {
+    return "🦃 Happy Thanksgiving from Rehnex! Thankful for this community of builders and collectors — hope your table has at least a little room for LEGO after dinner.";
+  }
+  const easter = getEaster(year);
+  if (today.getMonth() === easter.getMonth() && today.getDate() === easter.getDate()) {
+    return "🐣 Happy Easter! LEGO has released egg-hunt and springtime-themed sets over the years — a fitting reason to build something colorful today.";
+  }
+  return null;
+}
 
 function getDayOfYear(date) {
   const start = new Date(date.getFullYear(), 0, 0);
@@ -1302,8 +1284,15 @@ function getDayOfYear(date) {
   return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
 
-const dayIndex = (getDayOfYear(new Date()) - 1) % legoFacts.length;
-document.getElementById('fact-text').textContent = legoFacts[dayIndex];
+const today = new Date();
+const specialMessage = getSpecialDayMessage(today);
+if (specialMessage) {
+  document.getElementById('fact-text').textContent = specialMessage;
+} else {
+  const dayIndex = (getDayOfYear(today) - 1) % legoFacts.length;
+  document.getElementById('fact-text').textContent = legoFacts[dayIndex];
+}
+
 
 // ---------- Load announcement + stats from site-config.json ----------
 // This file is edited by hand for the announcement, and can be overwritten
@@ -1326,6 +1315,26 @@ fetch('site-config.json?_=' + Date.now())
       if (cfg.stats.lastUpdated) {
         document.getElementById('stats-updated').textContent = 'Stats updated ' + cfg.stats.lastUpdated;
       }
+    }
+
+    // Parts by Color dropdown — only lists colors actually in your current inventory
+    const colorSelect = document.getElementById('color-select');
+    if (cfg.colorsInStock && cfg.colorsInStock.length) {
+      cfg.colorsInStock
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.id;
+          opt.textContent = c.name;
+          colorSelect.appendChild(opt);
+        });
+    } else {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.disabled = true;
+      opt.textContent = 'No color data yet';
+      colorSelect.appendChild(opt);
     }
   })
   .catch(() => {
