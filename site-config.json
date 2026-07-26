@@ -4,10 +4,10 @@
     "text": "\ud83c\udf89 Sale this week \u2014 20% off orders over $50!"
   },
   "stats": {
-    "uniqueLots": 1151,
-    "totalItems": 7632,
+    "uniqueLots": 1337,
+    "totalItems": 8152,
     "feedbackReceived": 84,
-    "lastUpdated": "2026-07-25"
+    "lastUpdated": "2026-07-26"
   },
   "colorsInStock": [
     {
@@ -213,6 +213,10 @@
     {
       "id": 156,
       "name": "Medium Azure"
+    },
+    {
+      "id": 157,
+      "name": "Medium Lavender"
     },
     {
       "id": 158,
