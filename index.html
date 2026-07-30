@@ -123,31 +123,11 @@
     .total{background:#f1fafc;font-weight:800;color:var(--blue)}
     .warning{display:none;margin-top:12px;text-align:center;font-weight:700}
     .tax-note{margin:12px 0 0}
-    .community{padding:78px 0;background:var(--blue)}
-    .community-title{max-width:680px;margin:0 0 30px;letter-spacing:-.045em;text-wrap:balance}
-    .social-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px}
-    .social-card{min-width:0;padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(255,255,255,.06)}
-    .social-card h2{margin:0}
-    .carousel{position:relative;display:grid;min-height:220px;place-items:center;padding:20px 50px;text-align:center}
-    .stars{color:var(--gold);letter-spacing:.13em}
-    .review-text{margin-top:12px;font-size:19px;font-weight:600;line-height:1.45}
-    .review-meta{margin-top:12px;color:#9fb0c3;font-size:12px;font-weight:600}
-    .arrow{position:absolute;top:50%;display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(255,255,255,.95);color:var(--blue-dark);cursor:pointer;transform:translateY(-50%);box-shadow:0 4px 12px rgba(11,23,38,.2)}
-    .arrow:hover{background:white;color:var(--navy)}.prev{left:0}.next{right:0}
-    .dots{display:flex;justify-content:center;gap:7px}.dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#526175;cursor:pointer}.dot.active{width:20px;border-radius:999px;background:var(--cyan)}
-    .build{display:grid;min-height:250px;place-content:center;text-align:center}
-    .build-icon{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 16px;border-radius:19px;background:linear-gradient(145deg,var(--cyan),var(--blue));color:white}
-    .build p{max-width:390px;margin:9px auto 20px}
-    .utility{padding:48px 0}
-    .utility-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .utility-card{display:flex;gap:15px;padding:21px;border:1px solid var(--line);border-radius:18px;text-decoration:none;box-shadow:0 8px 20px rgba(16,24,40,.035)}
-    .utility-icon{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:#eaf8fb;color:var(--blue)}
-    .utility-card h2{margin:0 0 4px}.utility-card p{margin:0}
     footer{padding:40px 24px;text-align:center;border-top:1px solid var(--line)}
     footer p{max-width:900px;margin:8px auto 0}
     @media(max-width:950px){.hero-grid,.reference{grid-template-columns:1fr}.visual{max-width:720px}.shop-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:760px){.nav-links{display:none}.social-grid,.utility-grid{grid-template-columns:1fr}.heading-row{display:block}.heading-copy{margin-top:12px}}
-    @media(max-width:560px){.page-width{padding-inline:16px}.hero{padding:55px 0 40px}.actions{flex-direction:column}.button{width:100%}.visual{min-height:330px;padding:14px}.brick-stage{height:235px}.shop-grid,.fields{grid-template-columns:1fr}.shop-card{min-height:112px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.accordion-inner{padding-left:18px}.carousel{padding-inline:42px}}
+    @media(max-width:760px){.nav-links{display:none}.heading-row{display:block}.heading-copy{margin-top:12px}}
+    @media(max-width:560px){.page-width{padding-inline:16px}.hero{padding:55px 0 40px}.actions{flex-direction:column}.button{width:100%}.visual{min-height:330px;padding:14px}.brick-stage{height:235px}.shop-grid,.fields{grid-template-columns:1fr}.shop-card{min-height:112px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.accordion-inner{padding-left:18px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
   </style>
   <script src="/_sdk/935a53bc2e11fb8d.data_sdk.js" type="text/javascript" integrity="sha512-qr2oyPnEys1WebcOABaRh6hG77r5PWpqeWW6JTKbRJqly/INsfBi31CVNlTmHqjgeLpkVmmHZJUdxSx/32tOFQ=="></script>
@@ -429,45 +409,6 @@
       </div>
      </div>
     </section>
-    <section id="reviews" class="community">
-     <div class="page-width">
-      <h2 data-template-id="community-heading" class="community-title canva-text" style="color: rgb(255, 255, 255); font-weight: 800; font-style: normal; font-size: 42px; line-height: 1.08;">Made for builders. Backed by buyers.</h2>
-      <div class="social-grid">
-       <article data-template-id="review-panel" class="social-card canva-card" style="background: linear-gradient(rgb(255, 255, 255), rgb(247, 249, 252));">
-        <h2 data-template-id="reviews-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 23px;">What buyers are saying</h2>
-        <div class="carousel">
-         <button id="review-prev" class="arrow prev" type="button" aria-label="Previous review"><i data-lucide="chevron-left"></i></button>
-         <div>
-          <div class="stars" aria-label="Five stars">
-           ★★★★★
-          </div>
-          <div id="review-text" class="review-text" aria-live="polite"></div>
-          <div id="review-meta" class="review-meta"></div>
-         </div><button id="review-next" class="arrow next" type="button" aria-label="Next review"><i data-lucide="chevron-right"></i></button>
-        </div>
-        <div id="review-dots" class="dots"></div>
-       </article>
-       <article data-template-id="build-panel" class="social-card canva-card" style="background: linear-gradient(rgb(255, 255, 255), rgb(247, 249, 252));">
-        <h2 data-template-id="build-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 23px;">Customer Build Showcase</h2>
-        <div class="build">
-         <div class="build-icon"><i data-lucide="camera"></i>
-         </div><strong data-template-id="build-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Your build could be first.</strong>
-         <p data-template-id="build-text" class="canva-text" style="color: rgb(174, 188, 205); font-weight: 400; font-style: normal; font-size: 13px;">Send a photo of your MOC, build, or minifigure made with Rehnex parts and it could be featured here.</p><a data-template-id="build-button" class="button canva-button" href="mailto:RehnexBricklink@gmail.com?subject=My%20Rehnex%20Build%20Showcase%20Submission" style="background: rgb(255, 255, 255); color: rgb(16, 24, 40);"><i data-lucide="send"></i><span data-template-id="build-button-label" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Share Your Build</span></a>
-        </div>
-       </article>
-      </div>
-     </div>
-    </section>
-    <section class="utility" aria-label="Additional store information">
-     <div class="page-width utility-grid">
-      <article data-template-id="fact-card" class="utility-card canva-card" style="background: rgb(255, 255, 255); grid-column: 1 / -1;"><span class="utility-icon"><i data-lucide="lightbulb"></i></span>
-       <div>
-        <h2 data-template-id="fact-label" class="canva-text" style="color: rgb(8, 126, 164); font-weight: 800; font-style: normal; font-size: 13px;">LEGO Fact of the Day</h2>
-        <p id="fact-text"></p>
-       </div>
-      </article>
-     </div>
-    </section>
    </main>
    <footer data-template-id="footer-panel" class="canva-footer" style="background: rgb(255, 255, 255);">
     <strong data-template-id="footer-line" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 15px; letter-spacing: 0.06rem;">REHNEX · QUALITY PARTS FOR WHAT’S NEXT</strong>
@@ -537,43 +478,7 @@
     event.target.selectedIndex=0;
   });
 
-  const reviews=[
-    ["Well packaged and arrived in great condition!","Vicc · 7/10/2026"],
-    ["Top Tier Seller! Great Quality!","HartyG · 7/7/2026"],
-    ["Items arrived very fast and in perfect condition. Great shop!","Heathert73 · 6/27/2026"],
-    ["FAST! Great parts. Great packaging. Wonderful seller.","k1965a · 5/13/2026"],
-    ["Excellent seller, fast shipping, everything as described.","LegoStoryW · 3/1/2025"]
-  ];
-  let reviewIndex=0,reviewTimer;
-  const dots=document.getElementById("review-dots");
-  reviews.forEach((_,index)=>{
-    const dot=document.createElement("button");
-    dot.type="button";dot.className="dot";dot.setAttribute("aria-label","Show review "+(index+1));
-    dot.addEventListener("click",()=>showReview(index));dots.appendChild(dot);
-  });
-  function showReview(index){
-    reviewIndex=(index+reviews.length)%reviews.length;
-    document.getElementById("review-text").textContent="“"+reviews[reviewIndex][0]+"”";
-    document.getElementById("review-meta").textContent=reviews[reviewIndex][1];
-    [...dots.children].forEach((dot,i)=>dot.classList.toggle("active",i===reviewIndex));
-    clearInterval(reviewTimer);reviewTimer=setInterval(()=>showReview(reviewIndex+1),7000);
-  }
-  document.getElementById("review-prev").addEventListener("click",()=>showReview(reviewIndex-1));
-  document.getElementById("review-next").addEventListener("click",()=>showReview(reviewIndex+1));
-
-  const facts=[
-    "Six standard 2×4 LEGO bricks can be combined in over 915 million different ways.",
-    "The LEGO name comes from the Danish phrase “leg godt,” meaning “play well.”",
-    "LEGO bricks made in 1958 still fit perfectly with bricks made today.",
-    "The first LEGO minifigure, a police officer, appeared in 1978.",
-    "MOC is community shorthand for “My Own Creation.”",
-    "BrickLink was founded in 2000 and acquired by the LEGO Group in 2019."
-  ];
-  const today=new Date(),start=new Date(today.getFullYear(),0,0);
-  const day=Math.floor((today-start)/86400000);
-  document.getElementById("fact-text").textContent=facts[(day-1+facts.length)%facts.length];
-
-  calculate();showReview(0);lucide.createIcons();
+  calculate();lucide.createIcons();
 
   // ---------- Load live stats + in-stock colors from site-config.json ----------
   // site-config.json is rewritten daily by update_stats.py via the GitHub Action;
