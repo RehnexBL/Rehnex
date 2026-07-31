@@ -32,9 +32,9 @@
     .nav-link{padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:13px;font-weight:600}
     .nav-link:hover{background:var(--soft);color:var(--ink)}
     .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:700}
-    .hero{position:relative;padding:88px 0 58px;overflow:hidden}
+    .hero{position:relative;padding:48px 0 32px;overflow:hidden}
     .hero:before{content:"";position:absolute;width:620px;height:620px;top:-330px;right:-120px;border-radius:50%;background:radial-gradient(circle,rgba(55,198,220,.2),rgba(55,198,220,0) 69%)}
-    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:68px;align-items:center}
+    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.15fr);gap:68px;align-items:center}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #cfe8ee;border-radius:999px;background:#f3fcfd}
     .pill-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(8,126,164,.1)}
     .hero h1{max-width:720px;margin:24px 0 20px;letter-spacing:-.065em;line-height:.98}
@@ -43,91 +43,103 @@
     .button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:9px;padding:0 19px;border:1px solid transparent;border-radius:13px;text-decoration:none;font-weight:700;transition:transform .18s,box-shadow .18s,background .18s}
     .button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,24,40,.12)}
     .button svg{width:18px;height:18px}
-    .visual{position:relative;min-height:390px;border:1px solid rgba(255,255,255,.8);border-radius:32px;background:linear-gradient(145deg,#fff,#eef8fb);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;padding:24px}
+    .visual{position:relative;aspect-ratio:1/1;width:320px;min-width:0;min-height:0;overflow:hidden;justify-self:start;align-self:center;border:1px solid rgba(255,255,255,.8);border-radius:32px;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;padding:18px}
     .logo-frame{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-    .logo-media{max-height:320px;max-width:100%;object-fit:contain;border-radius:16px}
+    .logo-media{max-height:200px;max-width:100%;object-fit:contain;border-radius:16px}
     .logo-still{display:none}
     @media(prefers-reduced-motion:reduce){.logo-video{display:none}.logo-still{display:block}}
     .visual-header{display:flex;align-items:center;justify-content:space-between;padding:4px 3px 17px;font-size:12px;font-weight:700}
     .status{display:flex;align-items:center;gap:7px;color:var(--muted)}
     .status:before{content:"";width:7px;height:7px;border-radius:50%;background:#12b76a}
-    .brick-stage{position:relative;height:280px;border-radius:23px;overflow:hidden;background:linear-gradient(145deg,#0b6f91,#14a4c1)}
-    .orb{position:absolute;border-radius:50%;filter:blur(2px);background:rgba(255,255,255,.13)}
-    .orb.a{width:220px;height:220px;top:-100px;right:-50px}.orb.b{width:160px;height:160px;bottom:-90px;left:-40px}
-    .block{position:absolute;border-radius:16px;box-shadow:0 22px 36px rgba(0,30,50,.25)}
-    .block:before,.block:after{content:"";position:absolute;top:-12px;width:27px;height:17px;border-radius:8px 8px 4px 4px;background:inherit}
-    .block:before{left:25px}.block:after{right:25px}
-    .block.one{width:170px;height:84px;left:42px;top:132px;background:#fff;transform:rotate(-8deg)}
-    .block.two{width:145px;height:75px;right:35px;top:70px;background:#fecc4c;transform:rotate(9deg)}
-    .floating-note{position:absolute;right:15px;bottom:16px;display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.92);box-shadow:0 12px 28px rgba(8,48,66,.2);font-size:12px;font-weight:700}
-    .floating-note svg{width:17px;color:var(--blue)}
-    .stats-wrap{padding:15px 0 70px}
+    .stats-wrap{padding:8px 0 32px}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;border:1px solid var(--line);border-radius:22px;background:white;box-shadow:0 12px 28px rgba(16,24,40,.04)}
-    .stat{padding:25px;text-align:center;border-right:1px solid var(--line)}
+    .stat{padding:16px;text-align:center;border-right:1px solid var(--line)}
     .stat:last-child{border-right:0}
-    .stat-value{font-size:27px;font-weight:800;letter-spacing:-.04em;color:var(--blue)}
+    .stat-value{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--blue)}
     .stat-label{margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
-    .section{padding:72px 0}
+    .section{padding:40px 0}
     .section-soft{background:var(--soft);border-block:1px solid var(--line)}
-    .heading-row{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:28px}
+    .heading-row{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:18px}
     .eyebrow{display:block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.12em}
     .section-title{margin:0;letter-spacing:-.045em;line-height:1.1}
     .heading-copy{max-width:430px;margin:0}
-    .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .shop-card{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;padding:18px;border:1px solid var(--line);border-radius:18px;text-decoration:none;box-shadow:0 1px 2px rgba(16,24,40,.02);transition:transform .2s,border-color .2s,box-shadow .2s}
-    .shop-card:hover{transform:translateY(-4px);border-color:#b9dce5;box-shadow:0 15px 30px rgba(16,24,40,.07)}
-    .shop-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#eaf8fb;color:var(--blue)}
-    .shop-icon svg{width:20px}
-    .shop-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .shop-bottom>svg{width:17px;color:#98a2b3}
-    .shop-card label{margin:0}
+    .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .shop-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;text-decoration:none;box-shadow:0 1px 2px rgba(16,24,40,.02);transition:transform .2s,border-color .2s,box-shadow .2s}
+    .shop-card:hover{transform:translateY(-3px);border-color:#b9dce5;box-shadow:0 12px 24px rgba(16,24,40,.06)}
+    .shop-icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#eaf8fb;color:var(--blue)}
+    .shop-icon svg{width:17px}
+    .shop-label{flex:1;min-width:0;font-weight:700;font-size:14px;color:var(--ink)}
+    .shop-arrow{flex:none;width:16px;color:#98a2b3}
+    .color-card{flex-direction:column;align-items:stretch;gap:8px}
+    .color-card-top{display:flex;align-items:center;gap:12px}
+    .shop-card label{margin:0;flex:1}
     .shop-card select{width:100%;border:0;background:transparent;color:inherit;font-weight:700;cursor:pointer}
-    .notice{display:flex;align-items:center;gap:14px;margin-top:24px;padding:16px 18px;border:1px solid #fed7d2;border-radius:16px}
-    .notice-icon{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:12px;background:#fff0ee;color:var(--danger)}
+    .notice{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding:12px 14px;border:1px solid #fed7d2;border-radius:16px}
+    .notice-icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:12px;background:#fff0ee;color:var(--danger)}
     .notice p{margin:0}
-    .reference{display:grid;grid-template-columns:1fr 1fr;gap:52px}
-    .column{display:grid;align-content:start;gap:52px}
-    .section-head{display:flex;align-items:center;gap:11px;margin:0 0 16px;letter-spacing:-.025em}
-    .section-head-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#eaf8fb;color:var(--blue)}
-    .section-head-icon svg{width:19px}
-    .accordion-list{display:grid;gap:10px}
+    .reference{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .column{display:grid;align-content:start;gap:32px}
+    .section-head{display:flex;align-items:center;gap:11px;margin:0 0 10px;letter-spacing:-.025em}
+    .section-head-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:11px;background:#eaf8fb;color:var(--blue)}
+    .section-head-icon svg{width:17px}
+    .accordion-list{display:grid;gap:8px}
     .accordion-item{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:white;transition:border-color .2s,box-shadow .2s}
     .accordion-item.open{border-color:#b9dce5;box-shadow:0 8px 20px rgba(16,24,40,.05)}
-    .accordion-header{display:flex;width:100%;align-items:center;gap:11px;padding:15px;border:0;background:transparent;color:var(--ink);text-align:left;cursor:pointer}
+    .accordion-header{display:flex;width:100%;align-items:center;gap:11px;padding:12px;border:0;background:transparent;color:var(--ink);text-align:left;cursor:pointer}
     .accordion-header:hover{background:#fafcfd}
-    .mini{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--blue)}
-    .mini svg{width:17px}
+    .mini{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:10px;background:var(--soft);color:var(--blue)}
+    .mini svg{width:15px}
     .chevron{margin-left:auto;color:#98a2b3;transition:transform .22s}
     .accordion-item.open .chevron{transform:rotate(180deg)}
     .accordion-body{max-height:0;overflow:hidden;transition:max-height .3s}
-    .accordion-inner{padding:0 18px 18px 60px}
+    .accordion-inner{padding:0 14px 14px 51px}
     .accordion-inner p{margin:0}.accordion-inner p+p{margin-top:9px}
-    .discount-list{padding:0;list-style:none;line-height:1.9}
-    .rate-table{width:100%;margin-top:12px;border-collapse:collapse}
-    .rate-table th,.rate-table td{padding:8px;border-bottom:1px solid var(--line);text-align:left}
+    .discount-list{padding:0;list-style:none;line-height:1.7}
+    .rate-table{width:100%;margin-top:10px;border-collapse:collapse}
+    .rate-table th,.rate-table td{padding:6px;border-bottom:1px solid var(--line);text-align:left}
     .rate-table th{color:var(--blue)}
-    .estimator{padding:22px;border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 10px 28px rgba(16,24,40,.05)}
+    .estimator{padding:16px;border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 10px 28px rgba(16,24,40,.05)}
     .fields{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     label{display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
     input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--soft);color:var(--ink);font-weight:600}
     input:focus{border-color:var(--blue);background:white;box-shadow:0 0 0 4px rgba(8,126,164,.09)}
-    .progress{position:relative;height:9px;margin:30px 6px 54px;border-radius:999px;background:#e8edf2}
+    .progress{position:relative;height:9px;margin:20px 6px 44px;border-radius:999px;background:#e8edf2}
     .progress-fill{width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .25s}
     .marker{position:absolute;top:50%;width:16px;height:16px;border:3px solid #d5dbe3;border-radius:50%;background:white;transform:translate(-50%,-50%)}
     .marker.reached{border-color:var(--blue);background:var(--cyan)}
     .marker span{position:absolute;top:20px;left:50%;font-size:9px;font-weight:700;line-height:1.25;text-align:center;white-space:nowrap;transform:translateX(-50%)}
-    .progress-note{margin:-18px 0 14px;text-align:center;font-weight:700;color:var(--blue)}
+    .progress-note{margin:6px 0 14px;text-align:center;font-weight:700;color:var(--blue)}
     .breakdown{overflow:hidden;border:1px solid var(--line);border-radius:14px}
-    .breakdown-row{display:flex;justify-content:space-between;gap:14px;padding:11px 13px;border-bottom:1px solid var(--line)}
+    .breakdown-row{display:flex;justify-content:space-between;gap:14px;padding:9px 13px;border-bottom:1px solid var(--line)}
     .breakdown-row:last-child{border:0}
     .total{background:#f1fafc;font-weight:800;color:var(--blue)}
     .warning{display:none;margin-top:12px;text-align:center;font-weight:700}
     .tax-note{margin:12px 0 0}
-    footer{padding:40px 24px;text-align:center;border-top:1px solid var(--line)}
+    .community{padding:44px 0;background:var(--blue)}
+    .community-title{max-width:680px;margin:0 0 18px;letter-spacing:-.045em;text-wrap:balance}
+    .social-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:14px}
+    .social-card{display:flex;flex-direction:column;min-width:0;padding:16px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(255,255,255,.06)}
+    .social-card h2{margin:0}
+    .carousel{position:relative;display:grid;min-height:160px;place-items:center;padding:14px 40px;text-align:center}
+    .stars{color:var(--gold);letter-spacing:.13em}
+    .review-text{margin-top:10px;font-size:17px;font-weight:600;line-height:1.4}
+    .review-meta{margin-top:8px;color:#9fb0c3;font-size:12px;font-weight:600}
+    .arrow{position:absolute;top:50%;display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(255,255,255,.95);color:var(--blue-dark);cursor:pointer;transform:translateY(-50%);box-shadow:0 4px 12px rgba(11,23,38,.2)}
+    .arrow:hover{background:white;color:var(--navy)}.prev{left:0}.next{right:0}
+    .dots{display:flex;justify-content:center;gap:7px}.dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#526175;cursor:pointer}.dot.active{width:20px;border-radius:999px;background:var(--cyan)}
+    .build{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    .build-icon{display:grid;place-items:center;width:50px;height:50px;margin:0 auto 12px;border-radius:16px;background:linear-gradient(145deg,var(--cyan),var(--blue));color:white}
+    .build p{max-width:390px;margin:8px auto 16px}
+    .utility{padding:28px 0}
+    .utility-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .utility-card{display:flex;gap:15px;padding:16px;border:1px solid var(--line);border-radius:18px;text-decoration:none;box-shadow:0 8px 20px rgba(16,24,40,.035)}
+    .utility-icon{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:13px;background:#eaf8fb;color:var(--blue)}
+    .utility-card h2{margin:0 0 4px}.utility-card p{margin:0}
+    footer{padding:28px 24px;text-align:center;border-top:1px solid var(--line)}
     footer p{max-width:900px;margin:8px auto 0}
-    @media(max-width:950px){.hero-grid,.reference{grid-template-columns:1fr}.visual{max-width:720px}.shop-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:760px){.nav-links{display:none}.heading-row{display:block}.heading-copy{margin-top:12px}}
-    @media(max-width:560px){.page-width{padding-inline:16px}.hero{padding:55px 0 40px}.actions{flex-direction:column}.button{width:100%}.visual{min-height:330px;padding:14px}.brick-stage{height:235px}.shop-grid,.fields{grid-template-columns:1fr}.shop-card{min-height:112px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.accordion-inner{padding-left:18px}}
+    @media(max-width:950px){.hero-grid,.reference{grid-template-columns:1fr}.visual{width:260px;justify-self:center}.shop-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.nav-links{display:none}.social-grid,.utility-grid{grid-template-columns:1fr}.heading-row{display:block}.heading-copy{margin-top:12px}}
+    @media(max-width:560px){.page-width{padding-inline:16px}.hero{padding:32px 0 24px}.actions{flex-direction:column}.button{width:100%}.visual{padding:12px}.shop-grid,.fields{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.accordion-inner{padding-left:16px}.carousel{padding-inline:32px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
   </style>
   <script src="/_sdk/935a53bc2e11fb8d.data_sdk.js" type="text/javascript" integrity="sha512-qr2oyPnEys1WebcOABaRh6hG77r5PWpqeWW6JTKbRJqly/INsfBi31CVNlTmHqjgeLpkVmmHZJUdxSx/32tOFQ=="></script>
@@ -139,7 +151,7 @@
    <main id="top">
     <section class="hero">
      <div class="page-width hero-grid">
-      <aside data-template-id="snapshot-panel" class="visual canva-panel" aria-label="Rehnex logo" style="background: linear-gradient(145deg, rgb(255, 255, 255), rgb(238, 248, 251));">
+      <aside data-template-id="snapshot-panel" class="visual canva-panel" aria-label="Rehnex logo" style="background: rgb(255, 255, 255);">
        <div class="logo-frame">
         <video class="logo-video logo-media" autoplay muted loop playsinline poster="rehnex-logo-poster.png" aria-label="Rehnex logo animation">
          <source src="rehnex-logo.mp4" type="video/mp4">
@@ -150,8 +162,8 @@
       <div>
        <div class="pill"><span class="pill-dot"></span><span data-template-id="hero-badge" class="canva-tag" style="color: rgb(7, 90, 118); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.06rem;">INDEPENDENT BRICKLINK SELLER · DES MOINES, IOWA</span>
        </div>
-       <h1 data-template-id="hero-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 64px; letter-spacing: -0.06rem; line-height: 0.98;">Quality parts for what’s next.</h1>
-       <p data-template-id="hero-subtext" class="hero-copy canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.65;">Since 2023, Rehnex has supplied quality LEGO® parts, minifigures, and sets from the heart of the Midwest. Every order is carefully counted, securely packed, and backed by reliable service.</p>
+       <h1 data-template-id="hero-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 44px; letter-spacing: -0.06rem; line-height: 1.02;">The right pieces for what’s next.</h1>
+       <p data-template-id="hero-subtext" class="hero-copy canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.6;">Since 2023, Rehnex has supplied quality LEGO® parts, minifigures, and sets from the heart of the Midwest. Every order is carefully counted, securely packed, and backed by reliable service.</p>
        <div class="actions">
         <a data-template-id="hero-shop-button" class="button canva-button" href="https://store.bricklink.com/Rehnex" target="_blank" rel="noopener noreferrer" style="background: rgb(8, 126, 164); color: rgb(255, 255, 255);"> <i data-lucide="shopping-bag"></i><span data-template-id="hero-shop-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Shop on BrickLink</span> </a> <a data-template-id="hero-contact-button" class="button canva-button" href="https://www.bricklink.com/contact.asp?u=Rehnex" target="_blank" rel="noopener noreferrer" style="background: rgb(8, 126, 164); color: rgb(255, 255, 255);"> <i data-lucide="message-circle"></i><span data-template-id="hero-contact-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Message Rehnex</span> </a>
        </div>
@@ -186,82 +198,85 @@
      <div class="page-width">
       <div class="heading-row">
        <div><span data-template-id="shop-eyebrow" class="eyebrow canva-text" style="color: rgb(8, 126, 164); font-weight: 800; font-style: normal; font-size: 11px;">SHOP BY CATEGORY</span>
-        <h2 data-template-id="shop-heading" class="section-title canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 40px; line-height: 1.08;">Find your next piece.</h2>
+        <h2 data-template-id="shop-heading" class="section-title canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 28px; line-height: 1.1;">Find your next piece.</h2>
        </div>
-       <p data-template-id="shop-intro" class="heading-copy canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 15px;">Browse featured finds, complete sets, minifigures, stickers, and individual parts without digging through menus.</p>
+       <p data-template-id="shop-intro" class="heading-copy canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Browse featured finds, complete sets, minifigures, stickers, and individual parts without digging through menus.</p>
       </div>
       <div class="shop-grid">
-       <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="sparkles"></i></span><span class="shop-bottom"><strong data-template-id="shop-featured" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Featured Items</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="layout-grid"></i></span><span class="shop-bottom"><strong data-template-id="shop-all" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">All Items</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22P%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="puzzle"></i></span><span class="shop-bottom"><strong data-template-id="shop-parts" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Parts</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22S%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="package-open"></i></span><span class="shop-bottom"><strong data-template-id="shop-sets" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Sets</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22M%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="users"></i></span><span class="shop-bottom"><strong data-template-id="shop-minifigs" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Minifigures</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22showNewest%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="clock-3"></i></span><span class="shop-bottom"><strong data-template-id="shop-new" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">New Arrivals</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22P%22,%22catID%22:%22160%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="tag"></i></span><span class="shop-bottom"><strong data-template-id="shop-stickers" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Stickers</strong><i data-lucide="arrow-up-right"></i></span></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22bOnWantedList%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="heart"></i></span><span class="shop-bottom"><strong data-template-id="shop-wanted" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">On Your Wanted List</strong><i data-lucide="arrow-up-right"></i></span></a>
-       <div data-template-id="color-card" class="shop-card canva-card" style="background: rgb(255, 255, 255);">
-        <span class="shop-icon"><i data-lucide="palette"></i></span>
-        <div><label data-template-id="color-label" for="color-select" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 13px;">Parts by Color</label> <select id="color-select"><option value="">Choose a color…</option></select>
+       <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="sparkles"></i></span><strong data-template-id="shop-featured" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Featured Items</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22desc%22:1,%22pgSize%22:50,%22showHomeItems%22:0%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="layout-grid"></i></span><strong data-template-id="shop-all" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">All Items</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22P%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="puzzle"></i></span><strong data-template-id="shop-parts" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Parts</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22S%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="package-open"></i></span><strong data-template-id="shop-sets" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Sets</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22M%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="users"></i></span><strong data-template-id="shop-minifigs" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Minifigures</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22sort%22:9,%22showNewest%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="clock-3"></i></span><strong data-template-id="shop-new" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">New Arrivals</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22itemType%22:%22P%22,%22catID%22:%22160%22%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="tag"></i></span><strong data-template-id="shop-stickers" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Stickers</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a> <a data-template-id="shop-card" class="shop-card canva-card" href="https://store.bricklink.com/Rehnex#/shop?o=%7B%22bOnWantedList%22:1%7D" target="_blank" rel="noopener noreferrer" style="background: rgb(255, 255, 255);"><span class="shop-icon"><i data-lucide="heart"></i></span><strong data-template-id="shop-wanted" class="shop-label canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">On Your Wanted List</strong><i data-lucide="arrow-up-right" class="shop-arrow"></i></a>
+       <div data-template-id="color-card" class="shop-card canva-card color-card" style="background: rgb(255, 255, 255);">
+        <div class="color-card-top">
+         <span class="shop-icon"><i data-lucide="palette"></i></span>
+         <label data-template-id="color-label" for="color-select" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 13px;">Parts by Color</label>
         </div>
+        <select id="color-select"><option value="">Choose a color…</option></select>
        </div>
       </div>
+     </div>
+    </section>
+    <section id="information" class="section">
+     <div class="page-width">
       <aside data-template-id="priority-panel" class="notice canva-banner" style="background: rgb(255, 248, 247);">
        <span class="notice-icon"><i data-lucide="shield-alert"></i></span>
        <p data-template-id="priority-notice" class="canva-text" style="color: rgb(180, 35, 24); font-weight: 600; font-style: normal; font-size: 14px;">Priority notice: Every submitted order is binding to the terms and conditions below. Please review them before placing an order.</p>
       </aside>
-     </div>
-    </section>
-    <section id="information" class="section">
-     <div class="page-width reference">
+      <div class="reference">
       <div class="column">
        <section aria-labelledby="terms-heading">
-        <h2 id="terms-heading" class="section-head"><span class="section-head-icon"><i data-lucide="file-check-2"></i></span><span data-template-id="terms-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 25px;">Terms &amp; Conditions</span></h2>
+        <h2 id="terms-heading" class="section-head"><span class="section-head-icon"><i data-lucide="file-check-2"></i></span><span data-template-id="terms-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 20px;">Terms &amp; Conditions</span></h2>
         <div class="accordion-list">
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="circle-dollar-sign"></i></span><span data-template-id="payment-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Payment Information</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="circle-dollar-sign"></i></span><span data-template-id="payment-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Payment Information</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="payment-body-1" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">All prices are in USD. PayPal only. Payment is due at checkout. Unpaid orders will be canceled and may result in negative feedback.</p>
-            <p data-template-id="payment-body-2" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Orders are processed within 1–2 business days after payment and shipped the following business day. Minimum order: $5.</p>
+            <p data-template-id="payment-body-1" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">All prices are in USD. PayPal only. Payment is due at checkout. Unpaid orders will be canceled and may result in negative feedback.</p>
+            <p data-template-id="payment-body-2" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Orders are processed within 1–2 business days after payment and shipped the following business day. Minimum order: $5.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="star"></i></span><span data-template-id="condition-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Item Condition</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="star"></i></span><span data-template-id="condition-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Item Condition</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="condition-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">All LEGO comes from a smoke-free, pet-free environment. New pieces are unused; used pieces are clean and build-ready. I only sell pieces I would use myself.</p>
+            <p data-template-id="condition-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">All LEGO comes from a smoke-free, pet-free environment. New pieces are unused; used pieces are clean and build-ready. I only sell pieces I would use myself.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="badge-check"></i></span><span data-template-id="quality-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Quality Assurance</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="badge-check"></i></span><span data-template-id="quality-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Quality Assurance</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="quality-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">All lots are double counted for accuracy. If anything seems incorrect, contact me immediately so I can make it right.</p>
+            <p data-template-id="quality-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">All lots are double counted for accuracy. If anything seems incorrect, contact me immediately so I can make it right.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="x-circle"></i></span><span data-template-id="cancel-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Cancelling Orders</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="x-circle"></i></span><span data-template-id="cancel-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Cancelling Orders</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="cancel-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Orders are binding contracts. Please confirm your purchase before finalizing. Rehnex reserves the right to cancel an order if expectations cannot be met despite reasonable efforts.</p>
+            <p data-template-id="cancel-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Orders are binding contracts. Please confirm your purchase before finalizing. Rehnex reserves the right to cancel an order if expectations cannot be met despite reasonable efforts.</p>
            </div>
           </div>
          </article>
         </div>
        </section>
        <section aria-labelledby="faq-heading">
-        <h2 id="faq-heading" class="section-head"><span class="section-head-icon"><i data-lucide="help-circle"></i></span><span data-template-id="faq-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 25px;">Frequently Asked Questions</span></h2>
+        <h2 id="faq-heading" class="section-head"><span class="section-head-icon"><i data-lucide="help-circle"></i></span><span data-template-id="faq-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 20px;">Frequently Asked Questions</span></h2>
         <div class="accordion-list">
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="boxes"></i></span><span data-template-id="combine-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Can you combine multiple orders?</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="boxes"></i></span><span data-template-id="combine-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Can you combine multiple orders?</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="combine-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Yes—if you contact me before a shipping label is purchased. Once a label has been generated, orders can no longer be combined.</p>
+            <p data-template-id="combine-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Yes—if you contact me before a shipping label is purchased. Once a label has been generated, orders can no longer be combined.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="globe-2"></i></span><span data-template-id="international-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Do you ship internationally?</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="globe-2"></i></span><span data-template-id="international-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Do you ship internationally?</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="international-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">No. I currently ship only within the 48 continental U.S. states.</p>
+            <p data-template-id="international-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">No. I currently ship only within the 48 continental U.S. states.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="life-buoy"></i></span><span data-template-id="missing-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">What if a part is missing or incorrect?</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="life-buoy"></i></span><span data-template-id="missing-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">What if a part is missing or incorrect?</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="missing-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Reach out right away and I will make it right. Every order is double-checked before shipment, but if something slipped through, please let me know.</p>
+            <p data-template-id="missing-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Reach out right away and I will make it right. Every order is double-checked before shipment, but if something slipped through, please let me know.</p>
            </div>
           </div>
          </article>
@@ -270,31 +285,31 @@
       </div>
       <div class="column">
        <section aria-labelledby="shipping-heading">
-        <h2 id="shipping-heading" class="section-head"><span class="section-head-icon"><i data-lucide="truck"></i></span><span data-template-id="shipping-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 25px;">Shipping &amp; Handling</span></h2>
+        <h2 id="shipping-heading" class="section-head"><span class="section-head-icon"><i data-lucide="truck"></i></span><span data-template-id="shipping-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 20px;">Shipping &amp; Handling</span></h2>
         <div class="accordion-list">
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="navigation"></i></span><span data-template-id="method-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Shipping Method</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="navigation"></i></span><span data-template-id="method-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Shipping Method</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="method-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">All orders ship via USPS. I currently ship only to the 48 continental United States.</p>
+            <p data-template-id="method-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">All orders ship via USPS. I currently ship only to the 48 continental United States.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="package-check"></i></span><span data-template-id="packaging-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Packaging</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="package-check"></i></span><span data-template-id="packaging-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Packaging</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="packaging-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Orders use bubble mailers or boxes based on size. Parts are individually bagged for safe transit and easy sorting.</p>
+            <p data-template-id="packaging-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Orders use bubble mailers or boxes based on size. Parts are individually bagged for safe transit and easy sorting.</p>
            </div>
           </div>
          </article>
-         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="scale"></i></span><span data-template-id="pricing-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Weights &amp; Pricing</span><i class="chevron" data-lucide="chevron-down"></i></button>
+         <article class="accordion-item"><button class="accordion-header" type="button" aria-expanded="false"><span class="mini"><i data-lucide="scale"></i></span><span data-template-id="pricing-title" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">Weights &amp; Pricing</span><i class="chevron" data-lucide="chevron-down"></i></button>
           <div class="accordion-body">
            <div class="accordion-inner">
-            <p data-template-id="pricing-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 14px;">Shipping is priced at the average label cost per weight category—no hidden fees and no profit on shipping. Orders over 10 lbs cannot be shipped.</p>
+            <p data-template-id="pricing-body" class="canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 13px;">Shipping is priced at the average label cost per weight category—no hidden fees and no profit on shipping. Orders over 10 lbs cannot be shipped.</p>
             <ul class="discount-list">
-             <li data-template-id="tier-25" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">🏅 $25+ — 25% off shipping</li>
-             <li data-template-id="tier-50" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">🥉 $50+ — 50% off shipping</li>
-             <li data-template-id="tier-75" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">🥈 $75+ — 75% off shipping</li>
-             <li data-template-id="tier-100" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">🥇 $100+ — free shipping</li>
+             <li data-template-id="tier-25" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">🏅 $25+ — 25% off shipping</li>
+             <li data-template-id="tier-50" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">🥉 $50+ — 50% off shipping</li>
+             <li data-template-id="tier-75" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">🥈 $75+ — 75% off shipping</li>
+             <li data-template-id="tier-100" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 14px;">🥇 $100+ — free shipping</li>
             </ul>
             <table class="rate-table">
              <thead>
@@ -364,7 +379,7 @@
         </div>
        </section>
        <section aria-labelledby="estimate-heading">
-        <h2 id="estimate-heading" class="section-head"><span class="section-head-icon"><i data-lucide="calculator"></i></span><span data-template-id="estimate-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 25px;">Estimate Your Order</span></h2>
+        <h2 id="estimate-heading" class="section-head"><span class="section-head-icon"><i data-lucide="calculator"></i></span><span data-template-id="estimate-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 20px;">Estimate Your Order</span></h2>
         <div data-template-id="estimator-panel" class="estimator canva-panel" style="background: rgb(255, 255, 255);">
          <form id="estimate-form">
           <div class="fields">
@@ -403,10 +418,50 @@
           </div>
          </div>
          <div id="over-limit" data-template-id="over-limit" class="warning canva-text" style="color: rgb(217, 45, 32); font-weight: 700; font-style: normal; font-size: 15px;">This order exceeds the 10 lb shipping limit—please contact me before ordering.</div>
-         <p data-template-id="tax-note" class="tax-note canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 11px;">Tax uses an approximate state-level rate based on ZIP code. BrickLink calculates and collects the exact tax at checkout.</p>
+         <p data-template-id="tax-note" class="tax-note canva-text" style="color: rgb(102, 112, 133); font-weight: 400; font-style: normal; font-size: 11px;">Tax uses an approximate state-level rate based on ZIP code. BrickLink calculates and collects the exact tax at checkout. I add a base weight increase adjustment to all orders of 3oz to include the weight of the packaging for the order. This is not included automatically included in calculation. Increase your estimated order weight by 3oz to get a better estimate of the total.</p>
         </div>
        </section>
       </div>
+      </div>
+     </div>
+    </section>
+    <section id="reviews" class="community">
+     <div class="page-width">
+      <h2 data-template-id="community-heading" class="community-title canva-text" style="color: rgb(255, 255, 255); font-weight: 800; font-style: normal; font-size: 30px; line-height: 1.1;">Made for builders. Backed by buyers.</h2>
+      <div class="social-grid">
+       <article data-template-id="review-panel" class="social-card canva-card" style="background: linear-gradient(rgb(255, 255, 255), rgb(247, 249, 252));">
+        <h2 data-template-id="reviews-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 18px;">What buyers are saying</h2>
+        <div class="carousel">
+         <button id="review-prev" class="arrow prev" type="button" aria-label="Previous review"><i data-lucide="chevron-left"></i></button>
+         <div>
+          <div class="stars" aria-label="Five stars">
+           ★★★★★
+          </div>
+          <div id="review-text" class="review-text" aria-live="polite"></div>
+          <div id="review-meta" class="review-meta"></div>
+         </div><button id="review-next" class="arrow next" type="button" aria-label="Next review"><i data-lucide="chevron-right"></i></button>
+        </div>
+        <div id="review-dots" class="dots"></div>
+       </article>
+       <article data-template-id="build-panel" class="social-card canva-card" style="background: linear-gradient(rgb(255, 255, 255), rgb(247, 249, 252));">
+        <h2 data-template-id="build-heading" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 800; font-style: normal; font-size: 18px;">Customer Build Showcase</h2>
+        <div class="build">
+         <div class="build-icon"><i data-lucide="camera"></i>
+         </div><strong data-template-id="build-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px;">Your build could be first.</strong>
+         <p data-template-id="build-text" class="canva-text" style="color: rgb(174, 188, 205); font-weight: 400; font-style: normal; font-size: 13px;">Send a photo of your MOC, build, or minifigure made with Rehnex parts and it could be featured here.</p><a data-template-id="build-button" class="button canva-button" href="mailto:RehnexBricklink@gmail.com?subject=My%20Rehnex%20Build%20Showcase%20Submission" style="background: rgb(255, 255, 255); color: rgb(16, 24, 40);"><i data-lucide="send"></i><span data-template-id="build-button-label" class="canva-text" style="color: rgb(16, 24, 40); font-weight: 700; font-style: normal; font-size: 15px;">Share Your Build</span></a>
+        </div>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section class="utility" aria-label="Additional store information">
+     <div class="page-width utility-grid">
+      <article data-template-id="fact-card" class="utility-card canva-card" style="background: rgb(255, 255, 255); grid-column: 1 / -1;"><span class="utility-icon"><i data-lucide="lightbulb"></i></span>
+       <div>
+        <h2 data-template-id="fact-label" class="canva-text" style="color: rgb(8, 126, 164); font-weight: 800; font-style: normal; font-size: 13px;">LEGO Fact of the Day</h2>
+        <p id="fact-text"></p>
+       </div>
+      </article>
      </div>
     </section>
    </main>
@@ -478,7 +533,43 @@
     event.target.selectedIndex=0;
   });
 
-  calculate();lucide.createIcons();
+  const reviews=[
+    ["Well packaged and arrived in great condition!","Vicc · 7/10/2026"],
+    ["Top Tier Seller! Great Quality!","HartyG · 7/7/2026"],
+    ["Items arrived very fast and in perfect condition. Great shop!","Heathert73 · 6/27/2026"],
+    ["FAST! Great parts. Great packaging. Wonderful seller.","k1965a · 5/13/2026"],
+    ["Excellent seller, fast shipping, everything as described.","LegoStoryW · 3/1/2025"]
+  ];
+  let reviewIndex=0,reviewTimer;
+  const dots=document.getElementById("review-dots");
+  reviews.forEach((_,index)=>{
+    const dot=document.createElement("button");
+    dot.type="button";dot.className="dot";dot.setAttribute("aria-label","Show review "+(index+1));
+    dot.addEventListener("click",()=>showReview(index));dots.appendChild(dot);
+  });
+  function showReview(index){
+    reviewIndex=(index+reviews.length)%reviews.length;
+    document.getElementById("review-text").textContent="“"+reviews[reviewIndex][0]+"”";
+    document.getElementById("review-meta").textContent=reviews[reviewIndex][1];
+    [...dots.children].forEach((dot,i)=>dot.classList.toggle("active",i===reviewIndex));
+    clearInterval(reviewTimer);reviewTimer=setInterval(()=>showReview(reviewIndex+1),7000);
+  }
+  document.getElementById("review-prev").addEventListener("click",()=>showReview(reviewIndex-1));
+  document.getElementById("review-next").addEventListener("click",()=>showReview(reviewIndex+1));
+
+  const facts=[
+    "Six standard 2×4 LEGO bricks can be combined in over 915 million different ways.",
+    "The LEGO name comes from the Danish phrase “leg godt,” meaning “play well.”",
+    "LEGO bricks made in 1958 still fit perfectly with bricks made today.",
+    "The first LEGO minifigure, a police officer, appeared in 1978.",
+    "MOC is community shorthand for “My Own Creation.”",
+    "BrickLink was founded in 2000 and acquired by the LEGO Group in 2019."
+  ];
+  const today=new Date(),start=new Date(today.getFullYear(),0,0);
+  const day=Math.floor((today-start)/86400000);
+  document.getElementById("fact-text").textContent=facts[(day-1+facts.length)%facts.length];
+
+  calculate();showReview(0);lucide.createIcons();
 
   // ---------- Load live stats + in-stock colors from site-config.json ----------
   // site-config.json is rewritten daily by update_stats.py via the GitHub Action;
