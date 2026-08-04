@@ -4,10 +4,10 @@
     "text": "\ud83c\udf89 Sale this week \u2014 20% off orders over $50!"
   },
   "stats": {
-    "uniqueLots": 1301,
-    "totalItems": 8072,
+    "uniqueLots": 1240,
+    "totalItems": 7346,
     "feedbackReceived": 86,
-    "lastUpdated": "2026-08-03"
+    "lastUpdated": "2026-08-04"
   },
   "colorsInStock": [
     {
@@ -109,10 +109,6 @@
     {
       "id": 63,
       "name": "Dark Blue"
-    },
-    {
-      "id": 67,
-      "name": "Metallic Silver"
     },
     {
       "id": 68,
@@ -225,10 +221,6 @@
     {
       "id": 220,
       "name": "Coral"
-    },
-    {
-      "id": 230,
-      "name": "Satin Trans-Purple"
     },
     {
       "id": 236,
