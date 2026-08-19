@@ -461,9 +461,6 @@
         <div class="carousel">
          <button id="review-prev" class="arrow prev" type="button" aria-label="Previous review"><i data-lucide="chevron-left"></i></button>
          <div>
-          <div class="stars" aria-label="Five stars">
-           ★★★★★
-          </div>
           <div id="review-text" class="review-text" aria-live="polite"></div>
           <div id="review-meta" class="review-meta"></div>
          </div><button id="review-next" class="arrow next" type="button" aria-label="Next review"><i data-lucide="chevron-right"></i></button>
@@ -554,11 +551,27 @@
     event.target.selectedIndex=0;
   });
   const reviews=[
-    ["Well packaged and arrived in great condition!","Vicc · 7/10/2026"],
-    ["Top Tier Seller! Great Quality!","HartyG · 7/7/2026"],
-    ["Items arrived very fast and in perfect condition. Great shop!","Heathert73 · 6/27/2026"],
-    ["FAST! Great parts. Great packaging. Wonderful seller.","k1965a · 5/13/2026"],
-    ["Excellent seller, fast shipping, everything as described.","LegoStoryW · 3/1/2025"]
+    ["Everything as it should be. 100% correct and well packaged.", "traintrax", "8/15/26"],
+    ["One of the best sellers I’ve ever ever bought from. Great seller. Fast shipping.", "MrWood42", "7/28/26"],
+    ["Items arrived very fast and in perfect condition. Great shop!", "Heathert73", "6/27/26"],
+    ["arrived quickly, exactly as described, super appreciated", "markduncan", "5/28/26"],
+    ["FAST! Great parts. Great packaging. Wonderful seller.", "k1965a", "5/13/26"],
+    ["great store & seller!! recommended for all your LEGO needs!!", "jms2027", "10/8/25"],
+    ["Great Seller! Great Minifigures! Would buy from again in an instant! A+++", "zeeverse", "9/3/25"],
+    ["Amazing seller, order arrived promptly and with everything as described. TY", "bb-4865003", "8/21/25"],
+    ["Awesome fast service, highly recommended", "Roger723", "6/12/25"],
+    ["Excellent items and excellent service! (◕‿◕)...Thank you!", "Bricksteroni", "6/9/25"],
+    ["Excellent seller, fast shipping, everything as described. Thank you!!", "LegoStoryW", "3/1/25"],
+    ["Great communication, packaging and quality all around! Would buy again", "J_murphy20", "2/27/25"],
+    ["Clean, quick and as advertised. Would order from again.", "Sduerr85", "10/22/24"],
+    ["Good Seller, super fast shipment, well packed. Thank You !", "PAU813", "8/19/24"],
+    ["Gr8 selection and prices. Thanks so much", "crushing71", "11/27/23"],
+    ["Quick ship, good packaging, thanks.", "Haufbraunn", "11/10/23"],
+    ["Thanks for the great pieces and fast service, grandsons are happy.", "Eric63", "9/21/23"],
+    ["Great Seller! Arrived fast! Will be back for more", "missbrixx", "8/24/23"],
+    ["Thank You! Processed and shipped quickly!", "Mdball1416", "8/8/23"],
+    ["Great seller, fast service, would buy from again", "Ethongoo", "8/4/23"],
+    ["Fantastic seller! A+++", "OramSolutions", "8/2/23"]
   ];
   let reviewIndex=0,reviewTimer;
   const dots=document.getElementById("review-dots");
@@ -577,12 +590,36 @@
   document.getElementById("review-prev").addEventListener("click",()=>showReview(reviewIndex-1));
   document.getElementById("review-next").addEventListener("click",()=>showReview(reviewIndex+1));
   const facts=[
-    "Six standard 2×4 LEGO bricks can be combined in over 915 million different ways.",
-    "The LEGO name comes from the Danish phrase “leg godt,” meaning “play well.”",
-    "LEGO bricks made in 1958 still fit perfectly with bricks made today.",
-    "The first LEGO minifigure, a police officer, appeared in 1978.",
-    "MOC is community shorthand for “My Own Creation.”",
-    "BrickLink was founded in 2000 and acquired by the LEGO Group in 2019."
+"LEGO molds are engineered to an accuracy of about 4 micrometres—just 0.004 millimetres—because even tiny dimensional differences can affect how reliably bricks connect.",
+"The famous 915,103,765 combinations of six 2×4 bricks are calculated using six bricks of the same color; the staggering number comes entirely from rearranging the same six pieces.",
+"The 1958 LEGO patent did more than protect a brick's shape—it introduced the new coupling principle using internal tubes, creating the basic connection system that still defines LEGO bricks today.",
+"LEGO's transition away from wooden toys was triggered by a 1960 fire that destroyed the company's wooden-toy warehouse; after the fire, LEGO discontinued wooden-toy production and concentrated on its plastic building system.",
+"The LEGO wheel was introduced in 1962, and LEGO itself identifies it as the element that introduced movement into the LEGO System in Play—turning the system from something primarily structural into something that could easily roll.",
+"LEGO's first train arrived in 1966 with both rails and a motor, meaning powered LEGO trains existed more than a decade before the modern LEGO minifigure.",
+"The modern LEGO minifigure launched in 1978 as part of a much larger redesign called the “System within the System,” which introduced Castle, Space, and Town as coordinated play themes rather than simply adding a new character.",
+"LEGO's first Pirates minifigures in 1989 were a major character-design milestone because they were the first LEGO minifigures to receive multiple facial expressions, moving beyond the standardized single smile used by earlier figures.",
+"The LEGO Group's 1978 Space launch was not simply a new theme; it introduced specialized new elements such as transparent yellow windows, radar dishes, and antennas while establishing the visual language that made classic LEGO Space immediately recognizable.",
+"BrickLink did not begin as BrickLink—it launched on June 19, 2000, under the name BrickBay, created by programmer and AFOL Dan Jezek as a marketplace for fans trading rare sets, bricks, and minifigures.",
+"BrickBay's first year demonstrated just how badly LEGO fans wanted a centralized marketplace: BrickLink's own history records transactions growing from about $170,000 to nearly $900,000 in that first year.",
+"For years, most BrickLink users knew Dan Jezek simply as “Admin”; his real identity was largely unknown to the community using the site he had created.",
+"After Dan Jezek died unexpectedly in 2010, his mother Eliska continued operating BrickLink because so many members depended on the site, including people whose livelihoods were tied to it.",
+"BrickLink was not acquired directly by LEGO from its founder: NXMH acquired the company in 2013, and the LEGO Group then announced its acquisition of BrickLink from NXMH on November 26, 2019.",
+"BrickLink's catalog is sophisticated enough to maintain an “Item Relationships” system that identifies connections beyond items merely appearing in the same set—including similar molds, paired parts, different-color assemblies, redesigned sets, and even stickered versus non-stickered minifigure matches.",
+"BrickLink currently tracks thousands of catalog relationships between LEGO items; its relationship database includes categories such as similar parts with similar molds, similar parts with different molds, paired parts, and sets that were redesigned during production.",
+"BrickLink can treat two pieces that look nearly identical as separate catalog items when their molds differ, meaning the catalog preserves physical distinctions that a casual collector might never notice.",
+"BrickLink's catalog can distinguish sets that share the same set number but are different catalog entries because of differences such as packaging, graphics, parts, or other production variations.",
+"BrickLink's color system is not simply a copy of LEGO's official color names: BrickLink explicitly states that its color names do not always match LEGO's names and that it does not recognize every color LEGO has produced.",
+"BrickLink's color database preserves historical colors specifically for collectors, and its current Color Guide includes a “Years Color Existed” filter—allowing a collector to investigate colors that existed for only a short period of LEGO history.",
+"BrickLink records some remarkably short-lived colors; for example, its catalog currently lists Neon Orange as existing from 1997–1999 and Lemon as existing only in 1992.",
+"BrickLink's color database also reveals that some familiar colors have surprisingly long histories: its current data lists White from 1949 onward and Red from 1949 onward.",
+"BrickLink's catalog has rules for deciding what color an assembly actually is; when there is no obvious color, it can use the base or bottommost component rather than simply treating every visible color as a separate catalog color.",
+"BrickLink can recognize a part's “known colors” through nested inventories up to 10 levels deep—for example, a subpart can be recognized through a chain involving a part, minifigure, gear item, and finally a set.",
+"BrickLink's catalog contains historical LEGO bill-of-materials data for some sets released before 1996, giving collectors access to inventory information from an era when LEGO's modern digital catalog systems did not yet exist.",
+"BrickLink's Price Guide does more than show an asking price: its Part Out Value calculates the total value of a set's individual regular items using price-guide data, allowing collectors to compare a set's value as a whole against its value as individual parts.",
+"BrickLink can catalog a set as having been redesigned during production; its Item Relationships database currently contains a dedicated category for sets that were changed while they were being produced.",
+"BrickLink even distinguishes certain minifigure variations that occur within the same set, including in-set variants and stickered versus non-stickered versions.",
+"BrickLink's catalog is not a static database that was simply completed years ago—it maintains additions and changes continuously, with thousands of catalog relationships and other catalog entries added or modified over time.",
+"The LEGO Group's decision to acquire BrickLink in 2019 was explicitly framed as a way to strengthen its connection with adult LEGO fans, turning a fan-created marketplace that began as BrickBay in 2000 into an official part of the LEGO Group's ecosystem."
   ];
   const today=new Date(),start=new Date(today.getFullYear(),0,0);
   const day=Math.floor((today-start)/86400000);
